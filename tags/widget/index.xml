@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Widget on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/widget/</link>
+    <description>Recent content in Widget on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Mar 2019 08:36:54 -0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/widget/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flutter常用布局</title>
+      <link>http://localhost:1313/post/flutter/widget/flutter%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/flutter%E5%B8%83%E5%B1%80/</guid>
+      <description>Flutter 中拥有需要将近30种内置的 布局Widget，其中常用有 Container、Padding、Center、Flex、Stack、Row、Co</description>
+    </item>
+    
+  </channel>
+</rss>

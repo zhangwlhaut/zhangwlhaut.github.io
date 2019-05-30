@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Center on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/center/</link>
+    <description>Recent content in Center on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Mar 2019 08:36:54 -0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/center/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Expanded 和 Flexible</title>
+      <link>http://localhost:1313/post/flutter/widget/expanded%E5%92%8Cflexible%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/expanded%E5%92%8Cflexible%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>Flexible Flexible是一个控制Row、Column、Flex等子组件如何布局的组件。 Flexible组件可以使Row、Column、Flex等</description>
+    </item>
+    
+    <item>
+      <title>Padding、Align、Center详解</title>
+      <link>http://localhost:1313/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/</guid>
+      <description>参考</description>
+    </item>
+    
+  </channel>
+</rss>

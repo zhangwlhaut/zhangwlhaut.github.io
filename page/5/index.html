@@ -115,6 +115,100 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E4%B8%BB%E9%A2%98-theme/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+        <span class="more-meta"> 74 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      主题-Theme Theme Widget 可以为Material APP 定义主题数据（ThemeData），Material组件库里很多Widget都使用了主题数据，如导航栏颜色，标题字体，Icon样式等。Theme内会使用inherited Widget来为其子树Widget共享样式数据。
+ThemeData ThemeData是Material Design Widget库的主题数据，Material库的Widget需要遵守相应的设计规范，而这些规范可自定义部分都定义在ThemeData，所以我们可以通过ThemeData来自定义应用主题。通过Theme.of方法获取当前ThemeData。 &gt; 注意，Material Design 设计规范中有些是不能自定义的，如导航栏高度，ThemeData只包含了可自定义部分。
+ThemeData中的部分数据：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  ThemeData({ Brightness brightness, //深色还是浅色  MaterialColor primarySwatch, //主题颜色样本，见下面介绍  Color primaryColor, //主色，决定导航栏颜色  Color accentColor, //次级色，决定大多数Widget的颜色，如进度条、开关等。  Color cardColor, //卡片颜色  Color dividerColor, //分割线颜色  ButtonThemeData buttonTheme, //按钮主题  Color cursorColor, //输入框光标颜色  Color dialogBackgroundColor,//对话框背景颜色  String fontFamily, //文字字体  TextTheme textTheme,// 字体主题，包括标题、body等文字样式  IconThemeData iconTheme, // Icon的默认样式  TargetPlatform platform, //指定平台，应用特定平台控件风格  .
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E4%B8%BB%E9%A2%98-theme/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+        <span class="more-meta"> 563 words </span>
+        <span class="more-meta"> 3 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ListView ListView是最常用的可滚动Widget，它可以沿着一个方向限行排布所有子Widget。 构造函数如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ListView({ ... //可滚动widget公共参数  Axis scrollDirection = Axis.vertical, bool reverse = false, ScrollController controller, bool primary, ScrollPhysics physics, EdgeInsetsGeometry padding, //ListView各个构造函数的共同参数  double itemExtent, bool shrinkWrap = false, bool addAutomaticKeepAlives = true, bool addRepaintBoundaries = true, double cacheExtent, //子widget列表  List&lt;Widget&gt; children = const &lt;Widget&gt;[], })   上面参数分为两组，第一组是可滚动Widget公共参数，第二组是ListView各个构造函数（ListView有多个构造函数）的公共参数。 可滚动Widget公共参数介绍见滚动监听及控制ScrollController
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+        <span class="more-meta"> 34 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+       可滚动Widget简介 当内容超过显示视口（ViewPort）时，如果没有特殊处理，Flutter则会提示Overflow错误。为此，Flutter提供了可滚动Widget用于显示列表和长布局。 下面是Srollable widget的公共属性，为了避免重复介绍，这里做统一介绍。
+1 2 3 4 5 6 7  Scrollable({ ... this.axisDirection = AxisDirection.down, this.controller, this.physics, @required this.viewportBuilder, //后面介绍 })    axisDirection: 滚动方向。 physics: 此属性接受一个ScrollPhysics对象，它决定可滚动Widget如何响应用户操作，比如用户滑动完抬起手指后，继续执行动画；或者滑动到边界时，如何显示。默认情况下，Flutter会根据平台使用不同的ScrollPhysics对象，应用不同的显示效果，如当滑动到边界时，继续拖动的话，在IOS上会出现弹性效果，而在Android上回出现微光效果。乳沟你想在所有平台上使用同一的效果，可以显示指定，Flutter SDK中包含了两个ScrollPhysics的子类可以直接使用：  ClampingScrollPhysics: Android下微光效果。 BouncingScrollPhysics: IOS下弹性效果。  controller: 此属性接收一个ScrollController对象。ScrollController主要作用是控制滚动位置和监听滚动事件。默认情况下，widget树种会有一个默认的PromaryScrollController, 如果子树中的可滚动widget没有显示的执行controller并且primary属性为true时（默认就为true），可滚动widget会使用这个默认的PrimarySrollController，这种机制的好处是父widget可以控制子树中可滚动widget的滚动，例如，Scaffold使用这种机制在IOS中实现了“回到顶部”的手势。详细介绍见滚动监听及控制ScrollController  
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+        <span class="more-meta"> 268 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      滚动监听及控制 以ListView为例，展示ScrollController的具体用法。最后，再介绍一下路由切换时如何保存滚动位置。
+ScrollController 构造函数：
+1 2 3 4 5  ScrollController({ double initialScrollOffset = 0.0, //初始滚动位置  this.keepScrollOffset = true,//是否保存滚动位置  ... })   ScrollController常用属性和方法：
+ offset 可滚动Widget当前滚动的位置 jumpTo(double offset)、animaTo(double offset,...) 这两个方法用于跳转到指定位置，他们不同之处在于，后者在跳转时会执行一个动画，前者不会。   滚动监听 ScrollController间接继承自Listenable，我们可以根据ScrollController来监听滚动事件。如：
+1  controller.addListener(()=&gt; print(controller.offset))   示例 我们创建一个ListView，当滚动位置放生变化时，我们先打印当前滚动位置，然后判断当前位置是否超过1000像素，如果草果则在屏幕右下角显示一个“返回顶部”的按钮，该按钮点击后可以使ListView恢复到初始位置；如果没有超过1000像素，则隐藏“返回顶部按钮”。代码如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62  class ScrollControllerTestRoute extends StatefulWidget { @override ScrollControllerTestRouteState createState() { return new ScrollControllerTestRouteState(); } } class ScrollControllerTestRouteState extends State&lt;ScrollControllerTestRoute&gt; { ScrollController _controller = new ScrollController(); bool showToTopBtn = false; //是否显示“返回到顶部”按钮  @override void initState() { //监听滚动事件，打印滚动位置  _controller.
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/flutter/%E8%B7%AF%E7%94%B1/"></a></h1>
     <div class="post-meta">
       <span class="post-time"> 0001-01-01 </span>
@@ -134,112 +228,6 @@ MaterialPageRoute MaterialPageRoute继承自PageRoute类，PageRoute类是一个
     </div>
     <div class="read-more">
       <a href="/post/flutter/%E8%B7%AF%E7%94%B1/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/hashmap/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-        <span class="more-meta"> 1465 words </span>
-        <span class="more-meta"> 7 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Java7 HashMap HashMap 结构 这个仅仅是示意图，因为没有考虑到数组要扩容的情况。
-大致方向上，HashMap里面是一个数组，然后数组中每个元素都是一个单向链表。
-上图中，每个绿色的实体是嵌套类Entry的实例，Entry包含四个属性：key，value，hash和用于单向链表的next。
-capacity：当前数组容量，始终保持2^n，可以扩容，扩容后数组大小为当前的两倍。 loadFactory：负载因子，默认为0.75 threshold：扩容的阈值，等于capacity*loadFactor
-put过程分析 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29  public V put(K key, V value) { // 当插入第一个元素的时候，需要先初始化数组大小  if (table == EMPTY_TABLE) { inflateTable(threshold); } // 如果 key 为 null，感兴趣的可以往里看，最终会将这个 entry 放到 table[0] 中  if (key == null) return putForNullKey(value); // 1.
-    </div>
-    <div class="read-more">
-      <a href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/hashmap/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/concurrenthashmap/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-        <span class="more-meta"> 621 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Java7 ConcurrentHashMap ConcurrentHashMap和HashMap思路差不多的，但是因为它是支持并发操作，所以要复杂些。
-整个ConcurrentHashMap由一个Segment组成，Segment代表“部分”或“一段”的意思，所以很多地方都会将其描述为分段锁。注意，行文中，我很多地方使用“槽”来代表一个Segment。
-简单的理解就是，ConcurrentHashMap是一个Segment数组，Segment它能够给继承ReegtrantLock来进行加锁，所以每次需要加锁的操作锁住的是一个Segment，这样只要保证每个Segment是线程安全的，也就实现了全局的线程安全。
-concrrencyLevel：并行级别、并发数、Segment数，怎么翻译不重要，理解它。默认是16，也就是说ConcurrentHashMap有16个Segment，所以理论上，这个时候，最多可以同时持有16个线程并发，只要它们分别分布在不同的Segment上。这个值可以在初始化的时候设置为其他值，但是一旦初始化后，它是不可以扩容的。
-再具体到每个Segment内部，其实每个Segment很像之前介绍的HashMap，不过它要保证线程安全吗，所以处理起来要麻烦些。
-初始化 inittalCapacity：初始化容量，这个值是整个ConcurrentHashMap的初始容量，实际操作的时候需要平均分配给每个Segment。 loadFactor:负载因子，之前我们说了，Segment数组不可以扩容，所以这个负载因子是给每个Segment内部使用的。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  public ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel) { if (!(loadFactor &gt; 0) || initialCapacity &lt; 0 || concurrencyLevel &lt;= 0) throw new IllegalArgumentException(); if (concurrencyLevel &gt; MAX_SEGMENTS) concurrencyLevel = MAX_SEGMENTS; // Find power-of-two sizes best matching arguments  int sshift = 0; int ssize = 1; // 计算并行级别 ssize，因为要保持并行级别是 2 的 n 次方  while (ssize &lt; concurrencyLevel) { ++sshift; ssize &lt;&lt;= 1; } // 我们这里先不要那么烧脑，用默认值，concurrencyLevel 为 16，sshift 为 4  // 那么计算出 segmentShift 为 28，segmentMask 为 15，后面会用到这两个值  this.
-    </div>
-    <div class="read-more">
-      <a href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/concurrenthashmap/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-        <span class="more-meta"> 30 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      二叉查找树（Binary Search Tree） 二叉查找树（BST）的特性  左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉排序树  下图中这棵树，就是一颗典型的二叉查找树： 那这样的结构有什么好处呢？我们试着查找一下值为10的节点。
- 查看根节点为9： 由于10&gt;9，因此查看右子节点13 由于10&lt;13，因此查看左子节点11 由于10&lt;11，因此查看左子节点，发现10正是要查找的节点。  二叉查找树，查找所需的最大次数等同于二叉查找树的高度。 在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。
-缺点： 缺点提现在插入新节点的时候。 例子： 假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图 接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？ 为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。
-红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。
- 节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  正因为这些规则，才保证了红黑树的自平衡。 红黑树从根到叶子的最长路径不会超过最短路径的2倍 当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。
-    </div>
-    <div class="read-more">
-      <a href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-        <span class="more-meta"> 269 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      R-B Tree 简介 R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。
-红黑树的特性：  节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  红黑树的应用 红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。 例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。
-红黑树的时间复杂度和相关证明 红黑树的时间复杂度为：O(logn)
-红黑树的操作 旋转操作 旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。
-上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：
- 将节点M的左孩子引用执行E节点的右孩子 将节点E的有孩子引用指向节点M，完成旋转  插入 红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。 性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。
-接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：
-情况一 插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。 情况二 N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。 情况三 N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。 情况四 N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。 这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）： 如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。
-情况五 N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。 插入总结 上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图： 删除 相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。
-    </div>
-    <div class="read-more">
-      <a href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

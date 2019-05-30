@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &amp;lt;Widget&amp;gt;[ Container( child: Image.network(&amp;#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&amp;#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors.">
+
+
+
+<meta itemprop="wordCount" content="267">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#flutter实战进阶-https-www-ldsun-com-flutter-practice"><a href="https://www.ldsun.com/flutter-practice/">Flutter实战进阶</a></a>
+<ul>
+<li><a href="#container-width-height-100">container width、height 100%</a></li>
+<li><a href="#沉浸式背景图片">沉浸式背景图片</a></li>
+<li><a href="#appbar-no-shadow">AppBar no shadow</a></li>
+<li><a href="#自定义字体">自定义字体</a></li>
+<li><a href="#获取页面生命周期">获取页面生命周期</a></li>
+<li><a href="#网络图片加载组件">网络图片加载组件</a></li>
+<li><a href="#主题颜色-themedata">主题颜色 ThemeData</a></li>
+<li><a href="#actionsheet-点击后隐藏">ActionSheet 点击后隐藏</a></li>
+<li><a href="#组织软键盘顶起页面">组织软键盘顶起页面</a></li>
+<li><a href="#键盘确认按钮样式">键盘确认按钮样式</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="flutter实战进阶-https-www-ldsun-com-flutter-practice"><a href="https://www.ldsun.com/flutter-practice/">Flutter实战进阶</a></h1>
+
+<h2 id="container-width-height-100">container width、height 100%</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">FractionallySizedBox</span><span class="p">(</span>
+    <span class="nl">widthFactor:</span> <span class="m">1</span><span class="p">,</span>
+    <span class="nl">heightFactor:</span> <span class="m">1</span><span class="p">,</span>
+    <span class="nl">child:</span> <span class="p">,</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="kt">double</span> <span class="n">width</span> <span class="o">=</span> <span class="n">MediaQuery</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="n">size</span><span class="p">.</span><span class="n">width</span>
+<span class="kt">double</span> <span class="n">height</span> <span class="o">=</span> <span class="n">MediaQuery</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="n">size</span><span class="p">.</span><span class="n">height</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="沉浸式背景图片">沉浸式背景图片</h2>
+
+<p>背景图片铺满AppBar及状态栏</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">(</span>
+      <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+        <span class="n">Container</span><span class="p">(</span>
+          <span class="nl">child:</span> <span class="n">Image</span><span class="p">.</span><span class="n">network</span><span class="p">(</span><span class="s1">&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;</span><span class="p">),</span>
+          <span class="nl">color:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">lightGreen</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">Scaffold</span><span class="p">(</span>
+          <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">transparent</span><span class="p">,</span>
+          <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+            <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">transparent</span><span class="p">,</span>
+            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Coin&#39;</span><span class="p">),</span>
+          <span class="p">),</span>
+          <span class="nl">body:</span> <span class="n">MyCoinPage</span><span class="p">(),</span>
+        <span class="p">)</span>
+      <span class="p">],</span>
+    <span class="p">);</span>
+  <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://ludis-1252396698.image.myqcloud.com/ghost/images/flutter/15506527024380.jpg!ghost" alt="效果" /></p>
+
+<h2 id="appbar-no-shadow">AppBar no shadow</h2>
+
+<p>AppBar默认底部有阴影。去掉只需要配置参数即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">AppBar</span><span class="p">(</span>
+    <span class="nl">elevation:</span><span class="m">0.0</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="自定义字体">自定义字体</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="nl">flutter:</span>
+  <span class="err">#</span> <span class="n">The</span> <span class="n">following</span> <span class="n">line</span> <span class="n">ensures</span> <span class="n">that</span> <span class="n">the</span> <span class="n">Material</span> <span class="n">Icons</span> <span class="n">font</span> <span class="k">is</span>
+  <span class="err">#</span> <span class="n">included</span> <span class="kd">with</span> <span class="n">your</span> <span class="n">application</span><span class="p">,</span> <span class="n">so</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">the</span> <span class="n">icons</span> <span class="k">in</span>
+  <span class="err">#</span> <span class="n">the</span> <span class="n">material</span> <span class="n">Icons</span> <span class="n">class</span><span class="p">.</span>
+  <span class="n">uses</span><span class="o">-</span><span class="n">material</span><span class="o">-</span><span class="nl">design:</span> <span class="kc">true</span>
+
+  <span class="nl">fonts:</span>
+    <span class="o">-</span> <span class="nl">family:</span> <span class="n">Kphi</span>
+      <span class="nl">fonts:</span>
+        <span class="o">-</span> <span class="nl">asset:</span> <span class="n">assets</span><span class="o">/</span><span class="n">fonts</span><span class="o">/</span><span class="n">Komet</span><span class="o">-</span><span class="n">Pro</span><span class="o">-</span><span class="n">Heavy</span><span class="o">-</span><span class="n">Italic</span><span class="p">.</span><span class="n">otf</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="获取页面生命周期">获取页面生命周期</h2>
+
+<p>使用<code>with WidgetBingdingOBserver</code>后，可以堆页面的的生命周期进行监听。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="kd">class</span> <span class="nc">_LifecycleWatcherState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">LifecycleWatcher</span><span class="o">&gt;</span> <span class="kd">with</span> <span class="n">WidgetsBindingObserver</span> <span class="p">{</span>
+  <span class="n">AppLifecycleState</span> <span class="n">_lastLifecycleState</span><span class="p">;</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="kt">void</span> <span class="n">initState</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+    <span class="n">WidgetsBinding</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">WidgetsBinding</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="kt">void</span> <span class="n">didChangeAppLifecycleState</span><span class="p">(</span><span class="n">AppLifecycleState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;current state: </span><span class="si">$</span><span class="n">state</span><span class="s1">&#39;</span><span class="p">);</span>
+    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+      <span class="n">_lastLifecycleState</span> <span class="o">=</span> <span class="n">state</span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="网络图片加载组件">网络图片加载组件</h2>
+
+<p>默认图片记载组件networkImage，当图片链接错误或为空时，会报exception导致Crash。FadeInImage同理。
+参考：<a href="https://github.com/flutter/flutter/issues/20910">github</a></p>
+
+<p>试了好几款组件都没有做错误处理，最终找到一个可用组件：<a href="https://github.com/flutter/flutter_image">Flutter_image</a>,同时配合<code>FadeInImage</code>设置默认占位图，完美。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">FadeInImage</span><span class="p">(</span>
+  <span class="nl">fit:</span> <span class="n">fit</span><span class="p">,</span>
+  <span class="nl">placeholder:</span> <span class="n">AssetImage</span><span class="p">(</span><span class="n">placeHolderImage</span><span class="p">),</span>
+  <span class="nl">image:</span> <span class="n">NetworkImageWithRetry</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">),</span>
+<span class="p">),</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="主题颜色-themedata">主题颜色 ThemeData</h2>
+
+<ul>
+<li><a href="https://blog.csdn.net/hekaiyou/article/details/76533014">主体颜色常识</a></li>
+<li><a href="https://github.com/Norbert515/dynamic_theme">动态设置主题色</a></li>
+</ul>
+
+<h2 id="actionsheet-点击后隐藏">ActionSheet 点击后隐藏</h2>
+
+<p>点击ActionSheet选择某项后，隐藏。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">Navigator</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="nl">rootNavigator:</span> <span class="kc">true</span><span class="p">).</span><span class="n">pop</span><span class="p">(</span><span class="s2">&#34;Discard&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="组织软键盘顶起页面">组织软键盘顶起页面</h2>
+
+<p>当软键盘顶起时，会将页面高度缩减，导致页面中的内容随着父级高度变化而变化，会导致诸多问题。
+解决方案：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
+  <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+    <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&#34;通讯录&#34;</span><span class="p">),</span>
+  <span class="p">),</span>
+   <span class="nl">resizeToAvoidBottomPadding:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">//输入框抵住键盘 内容不随键盘滚动
+</span><span class="c1"></span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="键盘确认按钮样式">键盘确认按钮样式</h2>
+
+<p>键盘确认按钮会显示为<code>搜索</code>,点击后触发<code>onSumitted</code>事件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="n">TextFormField</span><span class="p">(</span> 
+  <span class="p">...</span>
+  <span class="nl">textInputAction:</span> <span class="n">TextInputAction</span><span class="p">.</span><span class="n">done</span><span class="p">,</span>
+  <span class="p">...</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

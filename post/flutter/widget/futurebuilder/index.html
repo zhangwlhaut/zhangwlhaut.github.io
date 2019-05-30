@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
+ 官方的意思是一个基于与Future交互快照构建自身的小组件。
+FutureBuilder用法和实现 构造方法：
+1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&amp;lt;String&amp;gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&amp;lt;String&amp;gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&amp;lt;String&amp;gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/flutter/widget/futurebuilder/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
+ 官方的意思是一个基于与Future交互快照构建自身的小组件。
+FutureBuilder用法和实现 构造方法：
+1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/flutter/widget/futurebuilder/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
+ 官方的意思是一个基于与Future交互快照构建自身的小组件。
+FutureBuilder用法和实现 构造方法：
+1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot.">
+
+
+
+<meta itemprop="wordCount" content="434">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
+ 官方的意思是一个基于与Future交互快照构建自身的小组件。
+FutureBuilder用法和实现 构造方法：
+1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#futurebuilder-https-blog-csdn-net-u011272795-article-details-83010974"><a href="https://blog.csdn.net/u011272795/article/details/83010974">FutureBuilder</a></a>
+<ul>
+<li><a href="#futurebuilder用法和实现">FutureBuilder用法和实现</a></li>
+<li><a href="#防止futurebuilder进行不必要的重绘">防止FutureBuilder进行不必要的重绘</a></li>
+<li><a href="#原因-didupdatewidget问题">原因：didUpdateWidget问题</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="futurebuilder-https-blog-csdn-net-u011272795-article-details-83010974"><a href="https://blog.csdn.net/u011272795/article/details/83010974">FutureBuilder</a></h1>
+
+<blockquote>
+<p>Widget that builds itself based on the snapshot of interaction with a Future.</p>
+</blockquote>
+
+<p>官方的意思是一个基于与Future交互快照构建自身的小组件。</p>
+
+<h2 id="futurebuilder用法和实现">FutureBuilder用法和实现</h2>
+
+<p>构造方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"> <span class="kd">const</span> <span class="n">FutureBuilder</span><span class="p">({</span>
+    <span class="n">Key</span> <span class="n">key</span><span class="p">,</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">future</span><span class="p">,</span>          <span class="c1">//获取数据的方法
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">initialData</span><span class="p">,</span>   <span class="c1">//初始的默认数据
+</span><span class="c1"></span>    <span class="err">@</span><span class="n">required</span> <span class="k">this</span><span class="p">.</span><span class="n">builder</span>
+  <span class="p">})</span> <span class="o">:</span> <span class="k">assert</span><span class="p">(</span><span class="n">builder</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">),</span>
+       <span class="k">super</span><span class="p">(</span><span class="nl">key:</span> <span class="n">key</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>主要看builder，这个是我们主要关心的，它是我们构建组件的策略。
+接收两个参数：BuildContext context，AsyncSnapshot snapshot。
+context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="c1">//FutureBuilder控件
+</span><span class="c1"></span><span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="nl">future:</span> <span class="n">_calculation</span><span class="p">,</span> <span class="c1">// 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数
+</span><span class="c1"></span>  <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AsyncSnapshot</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">snapshot</span><span class="p">)</span> <span class="p">{</span>      <span class="c1">//snapshot就是_calculation在时间轴上执行过程的状态快照
+</span><span class="c1"></span>    <span class="k">switch</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">connectionState</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">none:</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Press button to start&#39;</span><span class="p">);</span>    <span class="c1">//如果_calculation未执行则提示：请点击开始
+</span><span class="c1"></span>      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">waiting:</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Awaiting result...&#39;</span><span class="p">);</span>  <span class="c1">//如果_calculation正在执行则提示：加载中
+</span><span class="c1"></span>      <span class="k">default</span><span class="o">:</span>    <span class="c1">//如果_calculation执行完毕
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">hasError</span><span class="p">)</span>    <span class="c1">//若_calculation执行出现异常
+</span><span class="c1"></span>          <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Error: </span><span class="si">${</span><span class="n">snapshot</span><span class="p">.</span><span class="n">error</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+        <span class="k">else</span>    <span class="c1">//若_calculation执行正常完成
+</span><span class="c1"></span>          <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Result: </span><span class="si">${</span><span class="n">snapshot</span><span class="p">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>FutureBuilder通过子属性<code>future</code>获取用户需要异步处理的代码，用<code>builder</code>回调函数暴露异步执行过程中的快照。我们通过builder的参数<code>snapshot</code>暴露的快照属性，定义好对应状态下的处理代码，即可实现异步执行时的交互逻辑。</p>
+
+<p>看似有些绕口，我们看下面这段代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="k">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="s1">&#39;package:async/async.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter_app/utils/HttpUtil.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">FutureBuilderPage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+  <span class="err">@</span><span class="n">override</span>
+  <span class="n">State</span><span class="o">&lt;</span><span class="n">StatefulWidget</span><span class="o">&gt;</span> <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">FutureBuilderState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">FutureBuilderState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">FutureBuilderPage</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kt">String</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;FutureBuilder使用&#39;</span><span class="p">;</span>
+  
+  <span class="n">Future</span> <span class="n">_gerData</span><span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="n">response</span> <span class="o">=</span> <span class="n">HttpUtil</span><span class="p">()</span>
+        <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">&#39;http://api.douban.com/v2/movie/top250&#39;</span><span class="p">,</span> <span class="nl">data:</span> <span class="p">{</span><span class="s1">&#39;count&#39;</span><span class="o">:</span> <span class="m">15</span><span class="p">});</span>
+    <span class="k">return</span> <span class="n">response</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">title</span><span class="p">),</span>
+      <span class="p">),</span>
+      <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="p">(</span>
+        <span class="nl">onPressed:</span> <span class="p">()</span> <span class="p">{</span>
+          <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">;</span>
+          <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">title</span><span class="p">),</span>
+      <span class="p">),</span>
+    <span class="nl">body:</span> <span class="n">FutureBuilder</span><span class="p">(</span>
+        <span class="nl">builder:</span> <span class="n">_buildFuture</span><span class="p">,</span>
+        <span class="nl">future:</span> <span class="n">_gerData</span><span class="p">(),</span> <span class="c1">// 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数
+</span><span class="c1"></span>      <span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">///snapshot就是_calculation在时间轴上执行过程的状态快照
+</span><span class="c1"></span>  <span class="n">Widget</span> <span class="n">_buildFuture</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AsyncSnapshot</span> <span class="n">snapshot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">connectionState</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">none:</span>
+        <span class="n">print</span><span class="p">(</span><span class="s1">&#39;还没有开始网络请求&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;还没有开始网络请求&#39;</span><span class="p">);</span>
+      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">active:</span>
+        <span class="n">print</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;ConnectionState.active&#39;</span><span class="p">);</span>
+      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">waiting:</span>
+        <span class="n">print</span><span class="p">(</span><span class="s1">&#39;waiting&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Center</span><span class="p">(</span>
+          <span class="nl">child:</span> <span class="n">CircularProgressIndicator</span><span class="p">(),</span>
+        <span class="p">);</span>
+      <span class="k">case</span> <span class="n">ConnectionState</span><span class="p">.</span><span class="nl">done:</span>
+        <span class="n">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">hasError</span><span class="p">)</span> <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Error: </span><span class="si">${</span><span class="n">snapshot</span><span class="p">.</span><span class="n">error</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">_createListView</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">snapshot</span><span class="p">);</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">Widget</span> <span class="n">_createListView</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AsyncSnapshot</span> <span class="n">snapshot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">List</span> <span class="n">movies</span> <span class="o">=</span> <span class="n">snapshot</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;subjects&#39;</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">ListView</span><span class="p">.</span><span class="n">builder</span><span class="p">(</span>
+      <span class="nl">itemBuilder:</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_itemBuilder</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">movies</span><span class="p">),</span>
+      <span class="nl">itemCount:</span> <span class="n">movies</span><span class="p">.</span><span class="n">length</span> <span class="o">*</span> <span class="m">2</span><span class="p">,</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">Widget</span> <span class="n">_itemBuilder</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">movies</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">isOdd</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">Divider</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">~/</span> <span class="m">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ListTile</span><span class="p">(</span>
+      <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]),</span>
+      <span class="nl">leading:</span> <span class="n">Text</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;year&#39;</span><span class="p">]),</span>
+      <span class="nl">trailing:</span> <span class="n">Text</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;original_title&#39;</span><span class="p">]),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在build方法中，我们返回一个Scaffold，主要的代码在body中，包裹了一个FutureBuilder，我们在它的Builder方法中，对不同的状态返回了不同的控件。</p>
+
+<p><code>snapshot.connectionState</code>就是异步函数<code>_getData</code>的执行状态，用户通过定义在<code>Connectionstate.none</code>和<code>ConnectionState.waiting</code>状态下，输出一个<code>Text</code>和<code>Center</code>显示并且内置文字<code>CircularProgressIndicator</code>的组件，其意义即：当异步函数<code>_getData</code>未执行时，屏幕正中央显示文字：<code>还没有开始网络请求</code>。和正在执行时，显示一个刷新状态的组件。</p>
+
+<p>当<code>_getData</code>执行完毕时，<code>snaphot.connectionState</code>的值变为<code>ConnectionState.done</code>，此时即可输出根据HTTP请求到的数据对应的<code>ListItem</code>。由于<code>ConnectState.done</code>是除了<code>ConnectionState.node</code>和<code>ConnectionState.waiting</code>以外的唯一值，所以代码中在<code>switch</code>下用<code>default</code>也可以（<code>ConnectionState.active</code>好像整个过程中没有调用）。</p>
+
+<p>由于通过<code>FutureBuilder</code>内的<code>builder()</code>函数即可草所控件的状态和重绘，我们不必通过自己写异步状态的判断和多次使用<code>setState()</code>实现页面上加载中和加载完成显示效果的切换，因为<code>FutureBuilder</code>内部自带执行了<code>setState()</code>的方法。</p>
+
+<p>现在一个FutureBuilder的构建就算完成了。</p>
+
+<h2 id="防止futurebuilder进行不必要的重绘">防止FutureBuilder进行不必要的重绘</h2>
+
+<p>如果姿势写一个FutureBuilder，我们就不需要floatingActionButton里面一系列东西，所以这时候就到它的出场了。
+代码中意思，每次点击它，就在我们标题后面加一个&rdquo;.&ldquo;，看一下效果
+<img src="https://img-blog.csdn.net/201810111143137?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEyNzI3OTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="重绘" />
+确实是改变了标题，但是整个页面也随着setState而进行了不必要的重绘。</p>
+
+<p>即使AppBar和FutureBuilder没有任何关联，每次我们改变它的值（通过调用setState)，FuterBuilder都会再次经历整个整个生命周期，它重新拉去future，导致不必要的流量，并再次显示负载，导致糟糕的用户体验。</p>
+
+<p>这个问题以各种方式变现出来。某些情况下，它甚至不像上面的例子那么明显。例如：</p>
+
+<ul>
+<li>从当前不在屏幕上的页面生成的网络流量</li>
+<li>热重装不能正常工作</li>
+<li>更新某些<strong>继承的窗口小部件</strong>中的值时，丢失导航器状态</li>
+<li>等等</li>
+</ul>
+
+<h2 id="原因-didupdatewidget问题">原因：didUpdateWidget问题</h2>
+
+<p>如果我们仔细看代码FutureBuilder，我们会发现它是一个StatefulWidget。我们知道，StatefulWidget维护一个长期存在的<code>State</code>对象。这种状态有一些管理其声明周期的方法，就像<code>initState</code>，<code>build</code>和<code>didUpdateWidget</code>。</p>
+
+<p><code>initState</code>在第一次创建状态对象时只调用一次，<code>build</code>在每次我们需要构建显示的窗口小部件时调用它，<code>didUpdateWidget</code>只要附加此<code>State</code>对象的窗口小部件发生变化时，就会调用此方法。</p>
+
+<p>在<code>FutureBuilder</code>这种情况下，这个方法看起来像这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dart" data-lang="Dart"><span class="err">@</span><span class="n">override</span>
+<span class="kt">void</span> <span class="n">didUpdateWidget</span><span class="p">(</span><span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">oldWidget</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">super</span><span class="p">.</span><span class="n">didUpdateWidget</span><span class="p">(</span><span class="n">oldWidget</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">oldWidget</span><span class="p">.</span><span class="n">future</span> <span class="o">!=</span> <span class="n">widget</span><span class="p">.</span><span class="n">future</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_activeCallbackIdentity</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">_unsubscribe</span><span class="p">();</span>
+      <span class="n">_snapshot</span> <span class="o">=</span> <span class="n">_snapshot</span><span class="p">.</span><span class="n">inState</span><span class="p">(</span><span class="n">ConnectionState</span><span class="p">.</span><span class="n">none</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">_subscribe</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果在构建时，新窗口小部件与旧窗口小部件不同Future实例，则会重复所有的内容：取消订阅，并再次订阅。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/flutter/widget/image/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

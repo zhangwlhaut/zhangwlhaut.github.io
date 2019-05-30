@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="mybatis默认有两个内置参数： * _parameter:代表整个参数 * 单个参数：_parameter就是这个参数 * 多个参数：参数会被封装成一个map,_parameter就是这个map * _databaseId:如果配置了databaseIdProvider标签，_databaseId就是代表当前数据库的别名
+简单数据类型 此时#{id,jdbcType=INTEGER}中id可以取任意名字如#{a,jdbcType=INTEGER}，如果需要if test则一定使用&amp;lt;if test = &amp;ldquo;_parameter !=null&amp;rdquo;&amp;gt;，此处一定使用_parameter!=null而不是id!=null
+1 2 3 4 5 6 7 8  &amp;lt;select id=&amp;#34;selectByPrimaryKey&amp;#34; resultMap=&amp;#34;BaseResultMap&amp;#34; parameterType=&amp;#34;Java.lang.Integer&amp;#34; &amp;gt; select &amp;lt;include refid=&amp;#34;Base_Column_List&amp;#34; /&amp;gt; from base.tb_user &amp;lt;if test=&amp;#34;_parameter != null&amp;#34;&amp;gt; where id = #{id,jdbcType=INTEGER} &amp;lt;/if&amp;gt; &amp;lt;/select&amp;gt;   一个对象数据类型 此时#{name,jdbcType=CHAR},#{sex,jdbcType=CHAR}中的name和sex一定要使用user对象的属性名 测试user对象&amp;lt;if test=&amp;rdquo;_parameter != null&amp;rdquo;&amp;gt;, 测试user对象属性&amp;lt;if test=&amp;ldquo;name != null&amp;rdquo;&amp;gt; 或者&amp;lt;if test=&amp;ldquo;#{name} != null&amp;rdquo;&amp;gt;
+两个对象数据类型 List&amp;lt;User&amp;gt; select(User user,Page page), 此时if test一定要&amp;lt;if test=&amp;rsquo;_parameter." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/mybatis/_parameter%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="mybatis默认有两个内置参数： * _parameter:代表整个参数 * 单个参数：_parameter就是这个参数 * 多个参数：参数会被封装成一个map,_parameter就是这个map * _databaseId:如果配置了databaseIdProvider标签，_databaseId就是代表当前数据库的别名
+简单数据类型 此时#{id,jdbcType=INTEGER}中id可以取任意名字如#{a,jdbcType=INTEGER}，如果需要if test则一定使用&lt;if test = &ldquo;_parameter !=null&rdquo;&gt;，此处一定使用_parameter!=null而不是id!=null
+1 2 3 4 5 6 7 8  &lt;select id=&#34;selectByPrimaryKey&#34; resultMap=&#34;BaseResultMap&#34; parameterType=&#34;Java.lang.Integer&#34; &gt; select &lt;include refid=&#34;Base_Column_List&#34; /&gt; from base.tb_user &lt;if test=&#34;_parameter != null&#34;&gt; where id = #{id,jdbcType=INTEGER} &lt;/if&gt; &lt;/select&gt;   一个对象数据类型 此时#{name,jdbcType=CHAR},#{sex,jdbcType=CHAR}中的name和sex一定要使用user对象的属性名 测试user对象&lt;if test=&rdquo;_parameter != null&rdquo;&gt;, 测试user对象属性&lt;if test=&ldquo;name != null&rdquo;&gt; 或者&lt;if test=&ldquo;#{name} != null&rdquo;&gt;
+两个对象数据类型 List&lt;User&gt; select(User user,Page page), 此时if test一定要&lt;if test=&rsquo;_parameter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/mybatis/_parameter%E4%BD%BF%E7%94%A8/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="mybatis默认有两个内置参数： * _parameter:代表整个参数 * 单个参数：_parameter就是这个参数 * 多个参数：参数会被封装成一个map,_parameter就是这个map * _databaseId:如果配置了databaseIdProvider标签，_databaseId就是代表当前数据库的别名
+简单数据类型 此时#{id,jdbcType=INTEGER}中id可以取任意名字如#{a,jdbcType=INTEGER}，如果需要if test则一定使用&lt;if test = &ldquo;_parameter !=null&rdquo;&gt;，此处一定使用_parameter!=null而不是id!=null
+1 2 3 4 5 6 7 8  &lt;select id=&#34;selectByPrimaryKey&#34; resultMap=&#34;BaseResultMap&#34; parameterType=&#34;Java.lang.Integer&#34; &gt; select &lt;include refid=&#34;Base_Column_List&#34; /&gt; from base.tb_user &lt;if test=&#34;_parameter != null&#34;&gt; where id = #{id,jdbcType=INTEGER} &lt;/if&gt; &lt;/select&gt;   一个对象数据类型 此时#{name,jdbcType=CHAR},#{sex,jdbcType=CHAR}中的name和sex一定要使用user对象的属性名 测试user对象&lt;if test=&rdquo;_parameter != null&rdquo;&gt;, 测试user对象属性&lt;if test=&ldquo;name != null&rdquo;&gt; 或者&lt;if test=&ldquo;#{name} != null&rdquo;&gt;
+两个对象数据类型 List&lt;User&gt; select(User user,Page page), 此时if test一定要&lt;if test=&rsquo;_parameter.">
+
+
+
+<meta itemprop="wordCount" content="111">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="mybatis默认有两个内置参数： * _parameter:代表整个参数 * 单个参数：_parameter就是这个参数 * 多个参数：参数会被封装成一个map,_parameter就是这个map * _databaseId:如果配置了databaseIdProvider标签，_databaseId就是代表当前数据库的别名
+简单数据类型 此时#{id,jdbcType=INTEGER}中id可以取任意名字如#{a,jdbcType=INTEGER}，如果需要if test则一定使用&lt;if test = &ldquo;_parameter !=null&rdquo;&gt;，此处一定使用_parameter!=null而不是id!=null
+1 2 3 4 5 6 7 8  &lt;select id=&#34;selectByPrimaryKey&#34; resultMap=&#34;BaseResultMap&#34; parameterType=&#34;Java.lang.Integer&#34; &gt; select &lt;include refid=&#34;Base_Column_List&#34; /&gt; from base.tb_user &lt;if test=&#34;_parameter != null&#34;&gt; where id = #{id,jdbcType=INTEGER} &lt;/if&gt; &lt;/select&gt;   一个对象数据类型 此时#{name,jdbcType=CHAR},#{sex,jdbcType=CHAR}中的name和sex一定要使用user对象的属性名 测试user对象&lt;if test=&rdquo;_parameter != null&rdquo;&gt;, 测试user对象属性&lt;if test=&ldquo;name != null&rdquo;&gt; 或者&lt;if test=&ldquo;#{name} != null&rdquo;&gt;
+两个对象数据类型 List&lt;User&gt; select(User user,Page page), 此时if test一定要&lt;if test=&rsquo;_parameter."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#简单数据类型">简单数据类型</a></li>
+<li><a href="#一个对象数据类型">一个对象数据类型</a></li>
+<li><a href="#两个对象数据类型">两个对象数据类型</a></li>
+<li><a href="#集合类型">集合类型</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>mybatis默认有两个内置参数：
+* _parameter:代表整个参数
+  * 单个参数：_parameter就是这个参数
+  * 多个参数：参数会被封装成一个map,_parameter就是这个map
+* _databaseId:如果配置了databaseIdProvider标签，_databaseId就是代表当前数据库的别名</p>
+
+<h3 id="简单数据类型">简单数据类型</h3>
+
+<p>此时#{id,jdbcType=INTEGER}中id可以取任意名字如#{a,jdbcType=INTEGER}，如果需要if test则一定使用&lt;if test = &ldquo;_parameter !=null&rdquo;&gt;，此处一定使用_parameter!=null而不是id!=null</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="o">&lt;</span><span class="k">select</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;selectByPrimaryKey&#34;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s2">&#34;BaseResultMap&#34;</span> <span class="n">parameterType</span><span class="o">=</span><span class="s2">&#34;Java.lang.Integer&#34;</span> <span class="o">&gt;</span>
+ <span class="k">select</span>
+ <span class="o">&lt;</span><span class="n">include</span> <span class="n">refid</span><span class="o">=</span><span class="s2">&#34;Base_Column_List&#34;</span> <span class="o">/&gt;</span>
+ <span class="k">from</span> <span class="n">base</span><span class="p">.</span><span class="n">tb_user</span>
+<span class="o">&lt;</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s2">&#34;_parameter != null&#34;</span><span class="o">&gt;</span>
+ <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="o">#</span><span class="err">{</span><span class="n">id</span><span class="p">,</span><span class="n">jdbcType</span><span class="o">=</span><span class="nb">INTEGER</span><span class="err">}</span>
+<span class="o">&lt;/</span><span class="k">if</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="k">select</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="一个对象数据类型">一个对象数据类型</h3>
+
+<p>此时#{name,jdbcType=CHAR},#{sex,jdbcType=CHAR}中的name和sex一定要使用user对象的属性名
+测试user对象&lt;if test=&rdquo;_parameter != null&rdquo;&gt;,
+测试user对象属性&lt;if test=&ldquo;name != null&rdquo;&gt;
+或者&lt;if test=&ldquo;#{name} != null&rdquo;&gt;</p>
+
+<h3 id="两个对象数据类型">两个对象数据类型</h3>
+
+<p>List&lt;User&gt; select(User user,Page page),
+此时if test一定要&lt;if test=&rsquo;_parameter.get(&ldquo;0&rdquo;).name != null&rsquo;&gt;
+(通过parameter.get(0)得到第一个参数即user);
+where语句where name = #{0.name,jdbcType=CHAR}(通过0.name确保第一个参数user的name属性值)</p>
+
+<p>不用0,1也可以取名List&lt;User&gt; select(@param(user)User user,@param(page)Page page)</p>
+
+<h3 id="集合类型">集合类型</h3>
+
+<p>此时collection=&ldquo;list&rdquo;会默认找到参数的那个集合idlist(collection=&ldquo;list&rdquo;这是默认写法,入参为数组Integer[] idarr,则用collection=&ldquo;array&rdquo;)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="k">User</span> <span class="n">selectUserInList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Interger</span><span class="o">&gt;</span> <span class="n">idlist</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="k">select</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;selectUserInList&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s2">&#34;User&#34;</span><span class="o">&gt;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">USER</span>  <span class="k">WHERE</span> <span class="n">ID</span> <span class="k">in</span>
+ <span class="o">&lt;</span><span class="n">foreach</span> <span class="n">item</span><span class="o">=</span><span class="s2">&#34;item&#34;</span> <span class="k">index</span><span class="o">=</span><span class="s2">&#34;index&#34;</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&#34;list&#34;</span> <span class="k">open</span><span class="o">=</span><span class="s2">&#34;(&#34;</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> <span class="k">close</span><span class="o">=</span><span class="s2">&#34;)&#34;</span><span class="o">&gt;</span>
+<span class="o">#</span><span class="err">{</span><span class="n">item</span><span class="err">}</span>
+ <span class="o">&lt;/</span><span class="n">foreach</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="k">select</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/mybatis/foreach/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

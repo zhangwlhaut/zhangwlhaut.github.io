@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="foreach 原文 foreach一共有三种类型，分别为List,array,Map三种
+foreach 属性 属性 描述 item 循环体中的具体对象。支持属性的点路径访问，如item.age,item.info.details。
+具体说明：在list和数组中是其中的对象，在map中是value。
+该参数为必选。 collection 要做foreach的对象，作为入参时，List&amp;lt;?&amp;gt;对象默认用list代替作为键，数组对象有array代替作为键，Map对象没有默认的键。
+当然在作为入参时可以使用@Param(&#34;keyName&#34;)来设置键，设置keyName后，list,array将会失效。 除了入参这种情况外，还有一种作为参数对象的某个字段的时候。举个例子：
+如果User有属性List ids。入参是User对象，那么这个collection = &#34;ids&#34;
+如果User有属性Ids ids;其中Ids是个对象，Ids有个属性List id;入参是User对象，那么collection = &#34;ids.id&#34;
+上面只是举例，具体collection等于什么，就看你想对那个元素做循环。
+该参数为必选。 separator 元素之间的分隔符，例如在in()的时候，separator=&#34;,&#34;会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。 open foreach代码的开始符号，一般是(和close=&#34;)&#34;合用。常用在in(),values()时。该参数可选。 close foreach代码的关闭符号，一般是)和open=&#34;(&#34;合用。常用在in(),values()时。该参数可选。 index 在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选。  List测试  Array大同小异
+ SQL
+1 2 3 4 5 6 7 8 9 10 11 12 13  drop table users if exists; create table users ( id int, name varchar(20) ); insert into users (id, name) values(1, &amp;#39;User1&amp;#39;); insert into users (id, name) values(2, &amp;#39;User2&amp;#39;); insert into users (id, name) values(3, &amp;#39;User3&amp;#39;); insert into users (id, name) values(4, &amp;#39;User4&amp;#39;); insert into users (id, name) values(5, &amp;#39;User5&amp;#39;); insert into users (id, name) values(6, &amp;#39;User6&amp;#39;);   User类 mapper." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/mybatis/foreach/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="foreach 原文 foreach一共有三种类型，分别为List,array,Map三种
+foreach 属性 属性 描述 item 循环体中的具体对象。支持属性的点路径访问，如item.age,item.info.details。
+具体说明：在list和数组中是其中的对象，在map中是value。
+该参数为必选。 collection 要做foreach的对象，作为入参时，List&lt;?&gt;对象默认用list代替作为键，数组对象有array代替作为键，Map对象没有默认的键。
+当然在作为入参时可以使用@Param(&#34;keyName&#34;)来设置键，设置keyName后，list,array将会失效。 除了入参这种情况外，还有一种作为参数对象的某个字段的时候。举个例子：
+如果User有属性List ids。入参是User对象，那么这个collection = &#34;ids&#34;
+如果User有属性Ids ids;其中Ids是个对象，Ids有个属性List id;入参是User对象，那么collection = &#34;ids.id&#34;
+上面只是举例，具体collection等于什么，就看你想对那个元素做循环。
+该参数为必选。 separator 元素之间的分隔符，例如在in()的时候，separator=&#34;,&#34;会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。 open foreach代码的开始符号，一般是(和close=&#34;)&#34;合用。常用在in(),values()时。该参数可选。 close foreach代码的关闭符号，一般是)和open=&#34;(&#34;合用。常用在in(),values()时。该参数可选。 index 在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选。  List测试  Array大同小异
+ SQL
+1 2 3 4 5 6 7 8 9 10 11 12 13  drop table users if exists; create table users ( id int, name varchar(20) ); insert into users (id, name) values(1, &#39;User1&#39;); insert into users (id, name) values(2, &#39;User2&#39;); insert into users (id, name) values(3, &#39;User3&#39;); insert into users (id, name) values(4, &#39;User4&#39;); insert into users (id, name) values(5, &#39;User5&#39;); insert into users (id, name) values(6, &#39;User6&#39;);   User类 mapper." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/mybatis/foreach/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="foreach 原文 foreach一共有三种类型，分别为List,array,Map三种
+foreach 属性 属性 描述 item 循环体中的具体对象。支持属性的点路径访问，如item.age,item.info.details。
+具体说明：在list和数组中是其中的对象，在map中是value。
+该参数为必选。 collection 要做foreach的对象，作为入参时，List&lt;?&gt;对象默认用list代替作为键，数组对象有array代替作为键，Map对象没有默认的键。
+当然在作为入参时可以使用@Param(&#34;keyName&#34;)来设置键，设置keyName后，list,array将会失效。 除了入参这种情况外，还有一种作为参数对象的某个字段的时候。举个例子：
+如果User有属性List ids。入参是User对象，那么这个collection = &#34;ids&#34;
+如果User有属性Ids ids;其中Ids是个对象，Ids有个属性List id;入参是User对象，那么collection = &#34;ids.id&#34;
+上面只是举例，具体collection等于什么，就看你想对那个元素做循环。
+该参数为必选。 separator 元素之间的分隔符，例如在in()的时候，separator=&#34;,&#34;会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。 open foreach代码的开始符号，一般是(和close=&#34;)&#34;合用。常用在in(),values()时。该参数可选。 close foreach代码的关闭符号，一般是)和open=&#34;(&#34;合用。常用在in(),values()时。该参数可选。 index 在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选。  List测试  Array大同小异
+ SQL
+1 2 3 4 5 6 7 8 9 10 11 12 13  drop table users if exists; create table users ( id int, name varchar(20) ); insert into users (id, name) values(1, &#39;User1&#39;); insert into users (id, name) values(2, &#39;User2&#39;); insert into users (id, name) values(3, &#39;User3&#39;); insert into users (id, name) values(4, &#39;User4&#39;); insert into users (id, name) values(5, &#39;User5&#39;); insert into users (id, name) values(6, &#39;User6&#39;);   User类 mapper.">
+
+
+
+<meta itemprop="wordCount" content="363">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="foreach 原文 foreach一共有三种类型，分别为List,array,Map三种
+foreach 属性 属性 描述 item 循环体中的具体对象。支持属性的点路径访问，如item.age,item.info.details。
+具体说明：在list和数组中是其中的对象，在map中是value。
+该参数为必选。 collection 要做foreach的对象，作为入参时，List&lt;?&gt;对象默认用list代替作为键，数组对象有array代替作为键，Map对象没有默认的键。
+当然在作为入参时可以使用@Param(&#34;keyName&#34;)来设置键，设置keyName后，list,array将会失效。 除了入参这种情况外，还有一种作为参数对象的某个字段的时候。举个例子：
+如果User有属性List ids。入参是User对象，那么这个collection = &#34;ids&#34;
+如果User有属性Ids ids;其中Ids是个对象，Ids有个属性List id;入参是User对象，那么collection = &#34;ids.id&#34;
+上面只是举例，具体collection等于什么，就看你想对那个元素做循环。
+该参数为必选。 separator 元素之间的分隔符，例如在in()的时候，separator=&#34;,&#34;会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。 open foreach代码的开始符号，一般是(和close=&#34;)&#34;合用。常用在in(),values()时。该参数可选。 close foreach代码的关闭符号，一般是)和open=&#34;(&#34;合用。常用在in(),values()时。该参数可选。 index 在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选。  List测试  Array大同小异
+ SQL
+1 2 3 4 5 6 7 8 9 10 11 12 13  drop table users if exists; create table users ( id int, name varchar(20) ); insert into users (id, name) values(1, &#39;User1&#39;); insert into users (id, name) values(2, &#39;User2&#39;); insert into users (id, name) values(3, &#39;User3&#39;); insert into users (id, name) values(4, &#39;User4&#39;); insert into users (id, name) values(5, &#39;User5&#39;); insert into users (id, name) values(6, &#39;User6&#39;);   User类 mapper."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#foreach">foreach</a>
+<ul>
+<li><a href="#foreach-属性">foreach 属性</a>
+<ul>
+<li><a href="#list测试">List测试</a></li>
+<li><a href="#map">Map</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="foreach">foreach</h1>
+
+<p><a href="https://blog.csdn.net/isea533/article/details/21237175">原文</a>
+foreach一共有三种类型，分别为List,array,Map三种</p>
+
+<h2 id="foreach-属性">foreach 属性</h2>
+
+<table border="0" class="table table-striped"><thead><tr><th style="width:100px;">属性</th>
+<th>描述</th>
+</tr></thead><tbody><tr><td style="border-top:1px solid #ddd;"><tt>item</tt></td>
+<td style="border-top:1px solid #ddd;">循环体中的具体对象。支持属性的点路径访问，如item.age,item.info.details。<br />
+具体说明：在list和数组中是其中的对象，在map中是value。<br />
+该参数为必选。</td>
+</tr><tr><td style="border-top:1px solid #ddd;"><tt>collection</tt></td>
+<td style="border-top:1px solid #ddd;">要做foreach的对象，作为入参时，List&lt;?&gt;对象默认用list代替作为键，数组对象有array代替作为键，<span style="color:rgb(255,0,0);">Map对象没有默认的键</span>。<br />
+当然在作为入参时可以使用@Param("keyName")来设置键，设置keyName后，list,array将会失效。 除了入参这种情况外，还有一种作为参数对象的某个字段的时候。举个例子：<br />
+如果User有属性List ids。入参是User对象，那么这个collection = "ids"<br />
+如果User有属性Ids ids;其中Ids是个对象，Ids有个属性List id;入参是User对象，那么collection = "ids.id"<br />
+上面只是举例，具体collection等于什么，就看你想对那个元素做循环。<br />
+该参数为必选。</td>
+</tr><tr class="b"><td style="border-top:1px solid #ddd;"><tt>separator</tt></td>
+<td style="border-top:1px solid #ddd;">元素之间的分隔符，例如在in()的时候，separator=","会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。</td>
+</tr><tr><td style="border-top:1px solid #ddd;"><tt>open</tt></td>
+<td style="border-top:1px solid #ddd;">foreach代码的开始符号，一般是(和close=")"合用。常用在in(),values()时。该参数可选。</td>
+</tr><tr class="b"><td style="border-top:1px solid #ddd;"><tt>close</tt></td>
+<td style="border-top:1px solid #ddd;">foreach代码的关闭符号，一般是)和open="("合用。常用在in(),values()时。该参数可选。</td>
+</tr><tr><td style="border-top:1px solid #ddd;"><tt>index</tt></td>
+<td style="border-top:1px solid #ddd;">在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选。</td>
+</tr></tbody></table>
+
+<h3 id="list测试">List测试</h3>
+
+<blockquote>
+<p>Array大同小异</p>
+</blockquote>
+
+<p><strong>SQL</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="k">drop</span> <span class="k">table</span> <span class="n">users</span> <span class="k">if</span> <span class="k">exists</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">users</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;User1&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;User2&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;User3&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;User4&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;User5&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;User6&#39;</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>User类</strong>
+<img src="https://img-blog.csdn.net/20140314143559843" alt="user类" />
+<strong>mapper.xml</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="o">&lt;</span><span class="k">select</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;countByUserList&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s2">&#34;_int&#34;</span> <span class="n">parameterType</span><span class="o">=</span><span class="s2">&#34;list&#34;</span><span class="o">&gt;</span>
+<span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">users</span>
+  <span class="o">&lt;</span><span class="k">where</span><span class="o">&gt;</span>
+    <span class="n">id</span> <span class="k">in</span>
+    <span class="o">&lt;</span><span class="n">foreach</span> <span class="n">item</span><span class="o">=</span><span class="s2">&#34;item&#34;</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&#34;list&#34;</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> <span class="k">open</span><span class="o">=</span><span class="s2">&#34;(&#34;</span> <span class="k">close</span><span class="o">=</span><span class="s2">&#34;)&#34;</span> <span class="k">index</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="o">&gt;</span>
+      <span class="o">#</span><span class="err">{</span><span class="n">item</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">jdbcType</span><span class="o">=</span><span class="nb">NUMERIC</span><span class="err">}</span>
+    <span class="o">&lt;/</span><span class="n">foreach</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="k">where</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="k">select</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>测试代码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldHandleComplexNullItem</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">SqlSession</span> <span class="n">sqlSession</span> <span class="o">=</span> <span class="n">sqlSessionFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">();</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">Mapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="n">sqlSession</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">Mapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">User</span> <span class="n">user1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+        <span class="n">user1</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+        <span class="n">user1</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;User2&#34;</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;();</span>
+        <span class="n">users</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">user1</span><span class="o">);</span>
+        <span class="n">users</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">countByUserList</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">sqlSession</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>测试日志</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text">DEBUG [main] - ==&gt;  Preparing: select count(*) from users WHERE id in ( ? , ? )
+DEBUG [main] - ==&gt; Parameters: 2(Integer), null
+DEBUG [main] - &lt;==      Total: 1</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="map">Map</h3>
+
+<blockquote>
+<p>Map类型没有默认的map,所以不能直接写死<code>collection=&quot;map&quot;</code>，如果这么写，需要保证传入的Map参数有<code>@Param(&quot;map&quot;)</code>注解。</p>
+</blockquote>
+
+<p>map和List,array相比，map是K,V存储的，在foreach中，使用map时，index属性值为map中的Key的值。</p>
+
+<p>因为map中的Key不同于list,array中的索引，所以会有更丰富的用法。</p>
+
+<p><strong>一个简单的例子</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="o">&lt;</span><span class="k">insert</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;ins_string_string&#34;</span><span class="o">&gt;</span>
+    <span class="k">insert</span> <span class="k">into</span> <span class="n">string_string</span> <span class="p">(</span><span class="k">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">values</span>
+    <span class="o">&lt;</span><span class="n">foreach</span> <span class="n">item</span><span class="o">=</span><span class="s2">&#34;item&#34;</span> <span class="k">index</span><span class="o">=</span><span class="s2">&#34;key&#34;</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&#34;map&#34;</span>
+        <span class="k">open</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> <span class="k">close</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="o">&gt;</span><span class="p">(</span><span class="o">#</span><span class="err">{</span><span class="k">key</span><span class="err">}</span><span class="p">,</span> <span class="o">#</span><span class="err">{</span><span class="n">item</span><span class="err">}</span><span class="p">)</span>
+    <span class="o">&lt;/</span><span class="n">foreach</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="k">insert</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>可以看出这个例子相当简单，表中需要两个值，正好和K,V对应，因而map中的一个K,V就对应一条数据，如果map中有多个K,V,那么久会保存多个结果。</p>
+
+<p>如果Map中有两对K,V,那么会执行SQL如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text">DEBUG [main] - ==&gt;  Preparing: insert into string_string (key, value) values (?, ?) , (?, ?)
+DEBUG [main] - ==&gt; Parameters: key 1(String), value 1(String), key 2(String), value 2(String)
+DEBUG [main] - &lt;==    Updates: 2</code></pre></td></tr></table>
+</div>
+</div>
+<p>下面再看一个<strong>select</strong>的例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Sql" data-lang="Sql"><span class="o">&lt;</span><span class="k">select</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;sel_key_cols&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s2">&#34;int&#34;</span><span class="o">&gt;</span>
+    <span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">key_cols</span> <span class="k">where</span>
+    <span class="o">&lt;</span><span class="n">foreach</span> <span class="n">item</span><span class="o">=</span><span class="s2">&#34;item&#34;</span> <span class="k">index</span><span class="o">=</span><span class="s2">&#34;key&#34;</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&#34;map&#34;</span>
+        <span class="k">open</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&#34;AND&#34;</span> <span class="k">close</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="o">&gt;</span><span class="err">${</span><span class="k">key</span><span class="err">}</span> <span class="o">=</span> <span class="o">#</span><span class="err">{</span><span class="n">item</span><span class="err">}</span>
+    <span class="o">&lt;/</span><span class="n">foreach</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="k">select</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>可以看出这里用<code>key=value</code>来作为查询条件，对于动态的查询，这种处理方式可以借鉴。<strong>一定要注意到\$和#的区别，</strong>\$的参数直接输出，#的参数会被替换为<code>?</code>,然后传入参数值执行。</p>
+
+<p>上述SQL执行日志如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Text" data-lang="Text">DEBUG [main] - ==&gt;  Preparing: select count(*) from key_cols where col_a = ? AND col_b = ?
+DEBUG [main] - ==&gt; Parameters: 22(Integer), 222(Integer)
+DEBUG [main] - &lt;==      Total: 1</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/mybatis/_parameter%E4%BD%BF%E7%94%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/mybatis/mybatis-generator/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="R-B Tree 简介 R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。
+红黑树的特性：  节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  红黑树的应用 红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。 例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。
+红黑树的时间复杂度和相关证明 红黑树的时间复杂度为：O(logn)
+红黑树的操作 旋转操作 旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。
+上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：
+ 将节点M的左孩子引用执行E节点的右孩子 将节点E的有孩子引用指向节点M，完成旋转  插入 红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。 性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。
+接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：
+情况一 插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。 情况二 N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。 情况三 N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。 情况四 N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。 这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）： 如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。
+情况五 N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。 插入总结 上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图： 删除 相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="R-B Tree 简介 R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。
+红黑树的特性：  节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  红黑树的应用 红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。 例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。
+红黑树的时间复杂度和相关证明 红黑树的时间复杂度为：O(logn)
+红黑树的操作 旋转操作 旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。
+上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：
+ 将节点M的左孩子引用执行E节点的右孩子 将节点E的有孩子引用指向节点M，完成旋转  插入 红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。 性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。
+接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：
+情况一 插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。 情况二 N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。 情况三 N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。 情况四 N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。 这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）： 如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。
+情况五 N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。 插入总结 上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图： 删除 相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="R-B Tree 简介 R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。
+红黑树的特性：  节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  红黑树的应用 红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。 例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。
+红黑树的时间复杂度和相关证明 红黑树的时间复杂度为：O(logn)
+红黑树的操作 旋转操作 旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。
+上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：
+ 将节点M的左孩子引用执行E节点的右孩子 将节点E的有孩子引用指向节点M，完成旋转  插入 红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。 性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。
+接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：
+情况一 插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。 情况二 N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。 情况三 N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。 情况四 N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。 这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）： 如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。
+情况五 N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。 插入总结 上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图： 删除 相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。">
+
+
+
+<meta itemprop="wordCount" content="269">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="R-B Tree 简介 R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。
+红黑树的特性：  节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  红黑树的应用 红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。 例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。
+红黑树的时间复杂度和相关证明 红黑树的时间复杂度为：O(logn)
+红黑树的操作 旋转操作 旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。
+上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：
+ 将节点M的左孩子引用执行E节点的右孩子 将节点E的有孩子引用指向节点M，完成旋转  插入 红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。 性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。
+接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：
+情况一 插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。 情况二 N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。 情况三 N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。 情况四 N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。 这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）： 如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。
+情况五 N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。 插入总结 上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图： 删除 相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#r-b-tree-简介">R-B Tree 简介</a>
+<ul>
+<li><a href="#红黑树的特性">红黑树的特性：</a></li>
+<li><a href="#红黑树的应用">红黑树的应用</a></li>
+<li><a href="#红黑树的时间复杂度和相关证明">红黑树的时间复杂度和相关证明</a></li>
+<li><a href="#红黑树的操作">红黑树的操作</a>
+<ul>
+<li><a href="#旋转操作">旋转操作</a></li>
+<li><a href="#插入">插入</a>
+<ul>
+<li><a href="#情况一">情况一</a></li>
+<li><a href="#情况二">情况二</a></li>
+<li><a href="#情况三">情况三</a></li>
+<li><a href="#情况四">情况四</a></li>
+<li><a href="#情况五">情况五</a></li>
+<li><a href="#插入总结">插入总结</a></li>
+</ul></li>
+<li><a href="#删除">删除</a>
+<ul>
+<li><a href="#情况一-1">情况一</a></li>
+<li><a href="#情况二-1">情况二</a></li>
+<li><a href="#情况三-1">情况三</a></li>
+<li><a href="#情况四-1">情况四</a></li>
+<li><a href="#情况五-1">情况五</a></li>
+<li><a href="#情况六">情况六</a></li>
+<li><a href="#删除总结">删除总结</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="r-b-tree-简介">R-B Tree 简介</h1>
+
+<p>R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。</p>
+
+<h2 id="红黑树的特性">红黑树的特性：</h2>
+
+<ol>
+<li>节点是红色或黑色。</li>
+<li>根节点是黑色。</li>
+<li>每个叶子节点都是黑色的空节点（NIL节点）。</li>
+<li>每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</li>
+<li>从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。</li>
+</ol>
+
+<p><img src="https://images0.cnblogs.com/i/497634/201403/251730074203156.jpg" alt="红黑树" /></p>
+
+<h2 id="红黑树的应用">红黑树的应用</h2>
+
+<p>红黑苏的应用比较广泛，主要是用它来储存有序数据，它的事件复杂度是O(logn)，效率非常高。
+例如，Java集合中TreeSet和TreeMap都是通过红黑树去实现的。</p>
+
+<h2 id="红黑树的时间复杂度和相关证明">红黑树的时间复杂度和相关证明</h2>
+
+<p><strong>红黑树的时间复杂度为：O(logn)</strong></p>
+
+<h2 id="红黑树的操作">红黑树的操作</h2>
+
+<h3 id="旋转操作">旋转操作</h3>
+
+<p>旋转操作分为左旋和右旋，左旋是将某个节点旋转为其右孩子的左孩子，而右旋是节点旋转为其左孩子的右孩子。</p>
+
+<p><img src="https://segmentfault.com/img/remote/1460000015590866?w=1314&amp;h=258" alt="左旋 右旋" /></p>
+
+<p>上图保安了左旋和右旋的示意图，这里以右旋为例进行说明，右旋节点M的步骤如下：</p>
+
+<ol>
+<li>将节点M的左孩子引用执行E节点的右孩子</li>
+<li>将节点E的有孩子引用指向节点M，完成旋转</li>
+</ol>
+
+<p><img src="https://segmentfault.com/img/remote/1460000015590867?w=1310&amp;h=262" alt="右旋详解" /></p>
+
+<h3 id="插入">插入</h3>
+
+<p>红黑树的插入过程和二叉查找树的过程基本相似，不同的地方在于，红黑树插入新节点后，需要进行调整，以满足红黑树的性质。
+性质1规定红黑树节点的颜色要么是红色要么是黑色，那么插入新节点时，这个节点应该是红色还是黑色呢？答案是红色，原因不难理解。如果插入的节点时黑色，那么这个节点所在的路径比其他路径多出一个黑色节点，这个调整起来会比较麻烦（参考红黑树的删除操作，就知道为啥多一个或少一个黑色节点时，调整起来这么麻烦了）。如果插入的节点时红色，此时所有路径上的黑色节点数量不变，仅可能会可先两个连续的红色节点的情况。这种情况下，通过变色和旋转进行调整即可，比之前简单多了。</p>
+
+<p>接下来，将分析插入红色节点后红黑树的情况，这里假设要插入的节点为N，N的父节点为P，祖父节点为G，叔叔节点为U，插入红色节点后，会出现5种情况，分别如下：</p>
+
+<h4 id="情况一">情况一</h4>
+
+<p>插入的新节点N为红黑树的根节点，这种情况下，我们把节点N的颜色由红色变为黑色，性质2（根是黑色）被满足。同时N被染成黑色后，红黑树所有路径上的黑色节点数量增加一个，性子5（黑高）仍然满足。
+<img src="https://segmentfault.com/img/remote/1460000015590868?w=1308&amp;h=88" alt="情况一" /></p>
+
+<h4 id="情况二">情况二</h4>
+
+<p>N的父节点是黑色，这种情况下，性质4（每个节点必须有两个黑色子节点）和性质5没有收到影响，不需要调整。
+<img src="https://segmentfault.com/img/remote/1460000015590869?w=1304&amp;h=138" alt="情况二" /></p>
+
+<h4 id="情况三">情况三</h4>
+
+<p>N的父节点是红色（节点P为红色，其父节点必然为黑色），叔叔节点U也是红色。由于P和N均为红色，所以性质4被打破，此时需要进行调整。这种情况下，先将P和U的变为黑色。此时经过G的路径上的黑色节点数量不变，性质5仍然满足。但是需要注意的是G被染成红色后，可能会导致它的父节点形成连续的红色节点，此时需要递归向上调整。
+<img src="https://segmentfault.com/img/remote/1460000015590870?w=1304&amp;h=230" alt="情况三" /></p>
+
+<h4 id="情况四">情况四</h4>
+
+<p>N的父节点为红色，叔叔节点为黑色。节点N时P的右孩子，且节点P是G的左孩子。此时先对节点P进行左旋，调整N与P的位置。接下来按照情况五进行产后处理，以恢复性质4。
+<img src="https://segmentfault.com/img/remote/1460000015590871?w=1302&amp;h=224" alt="四 左旋" />
+这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）：
+<img src="https://segmentfault.com/img/remote/1460000015590872?w=1308&amp;h=234" alt="四情况说明" />
+如上图，插入节点 N 并按情况三处理。此时 PR 被染成了红色，与 P 节点形成了连续的红色节点，这个时候就需按情况四再次进行调整。</p>
+
+<h4 id="情况五">情况五</h4>
+
+<p>N 的父节点为红色，叔叔节点为黑色。N 是 P 的左孩子，且节点 P 是 G 的左孩子。此时对 G 进行右旋，调整 P 和 G 的位置，并互换颜色。经过这样的调整后，性质4被恢复，同时也未破坏性质5。
+<img src="https://segmentfault.com/img/remote/1460000012728526?w=1308&amp;h=234" alt="情况五" /></p>
+
+<h4 id="插入总结">插入总结</h4>
+
+<p>上面五种情况中，情况一和情况二比较简单，情况三、四、五稍复杂。但如果细心观察，会发现这三种情况的区别在于叔叔节点的颜色，如果叔叔节点为红色，直接变色即可。如果叔叔节点为黑色，则需要选选择，再交换颜色。当把这三种情况的图画在一起就区别就比较容易观察了，如下图：
+<img src="https://segmentfault.com/img/remote/1460000012725117?w=1312&amp;h=768" alt="总结" /></p>
+
+<h3 id="删除">删除</h3>
+
+<p>相较于插入操作，红黑树的删除操作则要更为复杂一些。删除操作首先要确定待删除节点有几个孩子，如果有两个孩子，不能直接删除该节点。而是要先找到该节点的前驱（该节点左子树中最大的节点）或者后继（该节点右子树中最小的节点），然后将前驱或者后继的值复制到要删除的节点中，最后再将前驱或后继删除。由于前驱和后继至多只有一个孩子节点，这样我们就把原来要删除的节点有两个孩子的问题转化为只有一个孩子节点的问题，问题被简化了一些。我们并不关心最终被删除的节点是否是我们开始想要删除的那个节点，只要节点里的值最终被删除就行了，至于树结构如何变化，这个并不重要。</p>
+
+<p>红黑树删除操作的复杂度在于删除节点的颜色，当删除的节点是红色时，直接拿其孩子节点补空位即可。因为删除红色节点，性质5（从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点）仍能够被满足。当删除的节点是黑色时，那么所有经过该节点的路径上的黑节点数量少了一个，破坏了性质5。如果该节点的孩子为红色，直接拿孩子节点替换被删除的节点，并将孩子节点染成黑色，即可恢复性质5。但如果孩子节点为黑色，处理起来就要复杂的多。分为6种情况，下面会展开说明。</p>
+
+<p>在展开说明之前，我们先做一些假设，方便说明。这里假设最终被删除的节点为X（至多只有一个孩子节点），其孩子节点为N，X的兄弟节点为S，S的左节点为 SL，右节点为 SR。接下来讨论是建立在节点 X 被删除，节点 N 替换X的基础上进行的。这里说明把被删除的节点X特地拎出来说一下的原因是防止大家误以为节点N会被删除，不然后面就会看不明白。
+<img src="https://segmentfault.com/img/remote/1460000015590874?w=1600&amp;h=314" alt="删除" />
+在上面的基础上，接下来就可以展开讨论了。红黑树删除有6种情况，分别是：</p>
+
+<h4 id="情况一-1">情况一</h4>
+
+<blockquote>
+<p>N 是新的根。在这种情形下，我们就做完了。我们从所有路径去除了一个黑色节点，而新根是黑色的，所以性质都保持着。</p>
+</blockquote>
+
+<p>上面是维基百科中关于红黑树删除的情况一说明，由于没有配图，看的有点晕。经过思考，我觉得可能会是下面这种情形：</p>
+
+<p>要删除的节点 X 是根节点，且左右孩子节点均为空节点，此时将节点 X 用空节点替换完成删除操作。</p>
+
+<p>可能还有其他情形，大家如果知道，烦请告知。</p>
+
+<h4 id="情况二-1">情况二</h4>
+
+<p>S 为红色，其他节点为黑色。这种情况下可以对 N 的父节点进行左旋操作，然后互换 P 与 S 颜色。但这并未结束，经过节点 P 和 N 的路径删除前有3个黑色节点（P -&gt; X -&gt; N），现在只剩两个了（P -&gt; N）。比未经过 N 的路径少一个黑色节点，性质5仍不满足，还需要继续调整。不过此时可以按照情况四、五、六进行调整。
+<img src="https://segmentfault.com/img/remote/1460000012728528?w=1310&amp;h=218" alt="情况二" /></p>
+
+<h4 id="情况三-1">情况三</h4>
+
+<p>N 的父节点，兄弟节点 S 和 S 的孩子节点均为黑色。这种情况下可以简单的把 S 染成红色，所有经过 S 的路径比之前少了一个黑色节点，这样经过 N 的路径和经过 S 的路径黑色节点数量一致了。但经过 P 的路径比不经过 P 的路径少一个黑色节点，此时需要从情况一开始对 P 进行平衡处理。
+<img src="https://segmentfault.com/img/remote/1460000012728529?w=1306&amp;h=210" alt="情况三" /></p>
+
+<h4 id="情况四-1">情况四</h4>
+
+<p>N 的父节点是红色，S 和 S 孩子为黑色。这种情况比较简单，我们只需交换 P 和 S 颜色即可。这样所有通过 N 的路径上增加了一个黑色节点，所有通过 S 的节点的路径必然也通过 P 节点，由于 P 与 S 只是互换颜色，并不影响这些路径。
+<img src="https://segmentfault.com/img/remote/1460000012916620?w=1302&amp;h=224" alt="" />
+这里需要特别说明一下，上图中的节点 N 并非是新插入的节点。当 P 为红色时，P 有两个孩子节点，且孩子节点均为黑色，这样从 G 出发到各叶子节点路径上的黑色节点数量才能保持一致。既然 P 已经有两个孩子了，所以 N 不是新插入的节点。情况四是由以 N 为根节点的子树中插入了新节点，经过调整后，导致 N 被变为红色，进而导致了情况四的出现。考虑下面这种情况（PR 节点就是上图的 N 节点）：
+<img src="https://segmentfault.com/img/remote/1460000012916621?w=1342&amp;h=314" alt="" /></p>
+
+<h4 id="情况五-1">情况五</h4>
+
+<p>S 为黑色，S 的左孩子为红色，右孩子为黑色。N 的父节点颜色可红可黑，且 N 是 P 左孩子。这种情况下对 S 进行右旋操作，并互换 S 和 SL 的颜色。此时，所有路径上的黑色数量仍然相等，N 兄弟节点的由 S 变为了 SL，而 SL 的右孩子变为红色。接下来我们到情况六继续分析。
+<img src="https://segmentfault.com/img/remote/1460000015590878?w=1306&amp;h=260" alt="" /></p>
+
+<h4 id="情况六">情况六</h4>
+
+<p>S 为黑色，S 的右孩子为红色。N 的父节点颜色可红可黑，且 N 是其父节点左孩子。这种情况下，我们对 P 进行左旋操作，并互换 P 和 S 的颜色，并将 SR 变为黑色。因为 P 变为黑色，所以经过 N 的路径多了一个黑色节点，经过 N 的路径上的黑色节点与删除前的数量一致。对于不经过 N 的路径，则有以下两种情况：</p>
+
+<ol>
+<li>该路径经过 N 新的兄弟节点 SL ，那它之前必然经过 S 和 P。而 S 和 P 现在只是交换颜色，对于经过 SL 的路径不影响。</li>
+<li>该路径经过 N 新的叔叔节点 SR，那它之前必然经过 P、 S 和 SR，而现在它只经过 S 和 SR。在对 P 进行左旋，并与 S 换色后，经过 SR 的路径少了一个黑色节点，性质5被打破。另外，由于 S 的颜色可红可黑，如果 S 是红色的话，会与 SR 形成连续的红色节点，打破性质4（每个红色节点必须有两个黑色的子节点）。此时仅需将 SR 由红色变为黑色即可同时恢复性质4和性质5（从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。）。</li>
+</ol>
+
+<p><img src="https://segmentfault.com/img/remote/1460000015590879?w=1308&amp;h=214" alt="" /></p>
+
+<h4 id="删除总结">删除总结</h4>
+
+<p>红黑树删除的情况比较多，大家刚开始看的时候可能会比较晕。可能会产生这样的疑问，为啥红黑树会有这种删除情况，为啥又会有另一种情况，它们之间有什么联系和区别？和大家一样，我刚开始看的时候也有这样的困惑，直到我把所有情况对应的图形画在一起时，拨云见日，一切都明了了。此时天空中出现了4个字，原来如此、原来如此、原来如此。所以，请看图吧：
+<img src="https://segmentfault.com/img/remote/1460000015590880?w=1308&amp;h=1278" alt="删除总结" /></p>
+
+<p>参考：</p>
+
+<ul>
+<li><a href="https://segmentfault.com/a/1190000012728513?utm_source=tag-newest">红黑树</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/mybatis/_parameter%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

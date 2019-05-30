@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="Scope(作用域) Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。
+Scope基本概念 先介绍Scope的用法，@Scope是元注解，是用来标记自定义注解的，如下：
+1 2 3 4  @Documented @Retention(RUNTIME) @Scope public @interface MyScope {}   MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。
+那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？
+在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：
+ When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.
+ 当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/android/dagger2/scope/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Scope(作用域) Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。
+Scope基本概念 先介绍Scope的用法，@Scope是元注解，是用来标记自定义注解的，如下：
+1 2 3 4  @Documented @Retention(RUNTIME) @Scope public @interface MyScope {}   MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。
+那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？
+在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：
+ When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.
+ 当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/android/dagger2/scope/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Scope(作用域) Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。
+Scope基本概念 先介绍Scope的用法，@Scope是元注解，是用来标记自定义注解的，如下：
+1 2 3 4  @Documented @Retention(RUNTIME) @Scope public @interface MyScope {}   MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。
+那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？
+在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：
+ When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.
+ 当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。">
+
+
+
+<meta itemprop="wordCount" content="809">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Scope(作用域) Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。
+Scope基本概念 先介绍Scope的用法，@Scope是元注解，是用来标记自定义注解的，如下：
+1 2 3 4  @Documented @Retention(RUNTIME) @Scope public @interface MyScope {}   MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。
+那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？
+在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：
+ When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.
+ 当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#scope-作用域">Scope(作用域)</a>
+<ul>
+<li><a href="#scope基本概念">Scope基本概念</a></li>
+<li><a href="#singleton-scope">Singleton Scope</a></li>
+<li><a href="#reusable-scope">Reusable Scope</a></li>
+<li><a href="#binding-instances">Binding Instances</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="scope-作用域">Scope(作用域)</h1>
+
+<p>Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。</p>
+
+<h2 id="scope基本概念">Scope基本概念</h2>
+
+<p>先介绍Scope的用法，<code>@Scope</code>是元注解，是用来标记自定义注解的，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@Documented</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="n">RUNTIME</span><span class="o">)</span>
+<span class="nd">@Scope</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">MyScope</span> <span class="o">{}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。</p>
+
+<p>那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？</p>
+
+<p>在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：</p>
+
+<blockquote>
+<p>When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.</p>
+</blockquote>
+
+<p>当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。</p>
+
+<p>下面以@MyScope为例，看 Scope 注解背后的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@Module</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarModule</span> <span class="o">{</span>
+
+    <span class="nd">@Provides</span>
+    <span class="nd">@MyScope</span>
+    <span class="kd">static</span> <span class="n">Car</span> <span class="nf">provideCar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@MyScope</span>
+<span class="nd">@Component</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="n">CarModule</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ManComponent</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">injectMan</span><span class="o">(</span><span class="n">Man</span> <span class="n">man</span><span class="o">);</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样生成的 Car 实例就与 ManComponent 绑定了。下面看编译时生成的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">DaggerManComponent</span> <span class="kd">implements</span> <span class="n">ManComponent</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">provideCarProvider</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">MembersInjector</span><span class="o">&lt;</span><span class="n">Man</span><span class="o">&gt;</span> <span class="n">manMembersInjector</span><span class="o">;</span>
+<span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="kd">final</span> <span class="n">Builder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="k">this</span><span class="o">.</span><span class="na">provideCarProvider</span> <span class="o">=</span> <span class="n">DoubleCheck</span><span class="o">.</span><span class="na">provider</span><span class="o">(</span><span class="n">CarModule_ProvideCarFactory</span><span class="o">.</span><span class="na">create</span><span class="o">());</span>
+
+    <span class="k">this</span><span class="o">.</span><span class="na">manMembersInjector</span> <span class="o">=</span> <span class="n">Man_MembersInjector</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">provideCarProvider</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">DoubleCheck</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;,</span> <span class="n">Lazy</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Object</span> <span class="n">UNINITIALIZED</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">provider</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Object</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">UNINITIALIZED</span><span class="o">;</span> <span class="c1">// instance 就是依赖实例的引用
+</span><span class="c1"></span><span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span> <span class="c1">// cast only happens when result comes from the provider
+</span><span class="c1"></span>  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">UNINITIALIZED</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// 只生成一次实例，之后调用的话直接复用
+</span><span class="c1"></span>      <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">instance</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">UNINITIALIZED</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>  <span class="c1">// 生成实例
+</span><span class="c1"></span>          <span class="cm">/* Get the current instance and test to see if the call to provider.get() has resulted
+</span><span class="cm">           * in a recursive call.  If it returns the same instance, we&#39;ll allow it, but if the
+</span><span class="cm">           * instances differ, throw. */</span>
+          <span class="n">Object</span> <span class="n">currentInstance</span> <span class="o">=</span> <span class="n">instance</span><span class="o">;</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">currentInstance</span> <span class="o">!=</span> <span class="n">UNINITIALIZED</span> <span class="o">&amp;&amp;</span> <span class="n">currentInstance</span> <span class="o">!=</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="s">&#34;Scoped provider was invoked recursively returning &#34;</span>
+                <span class="o">+</span> <span class="s">&#34;different results: &#34;</span> <span class="o">+</span> <span class="n">currentInstance</span> <span class="o">+</span> <span class="s">&#34; &amp; &#34;</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">&#34;. This is likely &#34;</span>
+                <span class="o">+</span> <span class="s">&#34;due to a circular dependency.&#34;</span><span class="o">);</span>
+          <span class="o">}</span>
+          <span class="n">instance</span> <span class="o">=</span> <span class="n">result</span><span class="o">;</span>
+          <span class="cm">/* Null out the reference to the provider. We are never going to need it again, so we
+</span><span class="cm">           * can make it eligible for GC. */</span>
+          <span class="n">provider</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">T</span><span class="o">)</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>从上面 DaggerManComponent 的代码可以看出使用了 MyScope 作用域后，<code>provideCarProvider由CarModule_ProvideCarFactory.create()</code>变为了<code>DoubleCheck.provider(CarModule_ProvideCarFactory.create())</code>。而 <code>DoubleCheck</code> 包装的意义在于持有了 Car 的实例，而且只会生成一次实例，也就是说：没有用 MyScope 作用域之前，DaggerManComponent 每次注入依赖都会新建一个 Car 实例，而用 MyScope 作用之后，每次注入依赖都只会返回第一次生成的实例。DaggerManComponent 持有 provideCarProvider 引用，provideCarProvider 又持有 instance（即 Car 实例）的引用，所以生成 Car 对象实例的生命周期就和 Component 一致了，作用域就生效了。</p>
+
+<p>Scope 作用域的本质：<code>Component</code> 间接持有依赖实例的引用，把实例的作用域与 Component 绑定，它们不是同年同月同日生，但是同年同月死。</p>
+
+<h2 id="singleton-scope">Singleton Scope</h2>
+
+<p>把上面例子中<code>@MyScope</code>换成<code>@Singleton</code>，发现生成的 <code>DaggerManComponent</code> 和其他类没有变化。也只是用DoubleCheck包装了工厂而已，并没有什么特殊实现。所以 <code>Singleton</code> 作用域可以保证一个 <code>Component</code> 中的单例，但是如果产生多个 <code>Component</code> 实例，那么实例的单例就无法保证了。</p>
+
+<p>所以在网上一些例子中，有看到<code>AppComponent</code>使用 <code>Singleton</code> 作用域，保证绑定的依赖实例的单例。它生效的原因是<code>AppComponent</code>只会在 <code>Application</code> 中创建一次，由<code>AppComponent</code>的单例来保证绑定的依赖实例的单例。</p>
+
+<blockquote>
+<p>注意：Component 可以同时被多个 Scope 标记。即 Component 可以和多个 Scope 的 Moudle 或目标类绑定。</p>
+</blockquote>
+
+<h2 id="reusable-scope">Reusable Scope</h2>
+
+<p>上文中的自定义的<code>@MyScope</code>和<code>@Singleton</code>都可以使得绑定的 <code>Component</code> 缓存依赖的实例，但是与之绑定 <code>Component</code> 必须有相同的 <code>Scope</code> 标记。假如我只想单纯缓存依赖的实例，可以复用之前的实例，不想关心与之绑定是什么 <code>Component</code>，应该怎么办呢？。
+这时就可以使用<code>@Reusable</code>作用域，<code>Reusable</code> 作用域不关心绑定的 <code>Component</code>，<code>Reusable</code> 作用域只需要标记目标类或 <code>provide</code> 方法，不用标记 <code>Component</code>。下面先看看使用 <code>Reusable</code> 作用域后，生成的 <code>DaggerManComponent</code> 的变化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">DaggerManComponent</span> <span class="kd">implements</span> <span class="n">ManComponent</span> <span class="o">{</span>
+<span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="kd">final</span> <span class="n">Builder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">provideCarProvider</span> <span class="o">=</span> <span class="n">SingleCheck</span><span class="o">.</span><span class="na">provider</span><span class="o">(</span><span class="n">CarModule_ProvideCarFactory</span><span class="o">.</span><span class="na">create</span><span class="o">());</span> <span class="c1">// DaggerManComponent 的改动
+</span><span class="c1"></span>
+    <span class="k">this</span><span class="o">.</span><span class="na">manMembersInjector</span> <span class="o">=</span> <span class="n">Man_MembersInjector</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">provideCarProvider</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">SingleCheck</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;,</span> <span class="n">Lazy</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Object</span> <span class="n">UNINITIALIZED</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">provider</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Object</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">UNINITIALIZED</span><span class="o">;</span> <span class="c1">// 缓存实例的引用
+</span><span class="c1"></span><span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span> <span class="c1">// cast only happens when result comes from the delegate provider
+</span><span class="c1"></span>  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// provider is volatile and might become null after the check to instance == UNINITIALIZED, so
+</span><span class="c1"></span>    <span class="c1">// retrieve the provider first, which should not be null if instance is UNINITIALIZED.
+</span><span class="c1"></span>    <span class="c1">// This relies upon instance also being volatile so that the reads and writes of both variables
+</span><span class="c1"></span>    <span class="c1">// cannot be reordered.
+</span><span class="c1"></span>    <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">providerReference</span> <span class="o">=</span> <span class="n">provider</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="n">UNINITIALIZED</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">instance</span> <span class="o">=</span> <span class="n">providerReference</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="c1">// 一般情况下只会生成一个实例，多线程中可能会有多个
+</span><span class="c1"></span>      <span class="c1">// Null out the reference to the provider. We are never going to need it again, so we can make
+</span><span class="c1"></span>      <span class="c1">// it eligible for GC.
+</span><span class="c1"></span>      <span class="n">provider</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">T</span><span class="o">)</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>从上面代码可以看出使用<code>@Reusable</code>作用域后，利用到 <code>Reusable</code> 实例的 <code>Component</code> 会间接持有实例的引用。但是这里是用<code>SingleCheck</code>而不是<code>DoubleCheck</code>，<strong>在多线程情况下可能会生成多个实例</strong>，关于这个有疑问推荐阅读 Java 设计模式之单例模式中双重检查锁定的部分。因为<code>@Reusable作</code>用域目的只是可以复用之前的实例，并不需要严格地保证实例的唯一，所以使用 <code>SingleCheck</code> 就足够了。</p>
+
+<h2 id="binding-instances">Binding Instances</h2>
+
+<p>如果想在绑定component时注入参数，如app需要一个用户名参数，就可以给component的builder方法添加一个<code>@BindInstance</code>方法注解，使用户名字符串实例可以被注入到component中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@Component</span><span class="o">(</span><span class="n">modules</span> <span class="o">=</span> <span class="n">AppModule</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">interface</span> <span class="nc">AppComponent</span> <span class="o">{</span>
+  <span class="n">App</span> <span class="nf">app</span><span class="o">();</span>
+
+  <span class="nd">@Component.Builder</span>
+  <span class="kd">interface</span> <span class="nc">Builder</span> <span class="o">{</span>
+    <span class="nd">@BindsInstance</span> <span class="n">Builder</span> <span class="nf">userName</span><span class="o">(</span><span class="nd">@UserName</span> <span class="n">String</span> <span class="n">userName</span><span class="o">);</span>
+    <span class="n">AppComponent</span> <span class="nf">build</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">1</span><span class="o">)</span> <span class="o">{</span> <span class="n">exit</span><span class="o">(</span><span class="n">1</span><span class="o">);</span> <span class="o">}</span>
+  <span class="n">App</span> <span class="n">app</span> <span class="o">=</span> <span class="n">DaggerAppComponent</span>
+      <span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">userName</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">0</span><span class="o">])</span>
+      <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">app</span><span class="o">();</span>
+  <span class="n">app</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="nd">@ActivityScope</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">HomeActivityComponent</span> <span class="o">{</span>
+    <span class="nd">@Component.Builder</span>
+    <span class="kd">interface</span> <span class="nc">Builder</span> <span class="o">{</span>
+        <span class="nd">@BindsInstance</span>
+        <span class="n">Builder</span> <span class="nf">activity</span><span class="o">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="o">);</span>
+        <span class="n">HomeActivityComponent</span> <span class="nf">build</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>注意在调用<code>build()</code>创建 <code>Component</code> 之前，所有<code>@BindsInstance</code>方法必须先调用。上面例子中 <code>HomeActivityComponent</code> 还可以注入 <code>Activity</code> 类型的依赖，但是不能注入 <code>HomeActivity</code>，因为 Dagger 2 是使用具体类型作为依据的（也就是只能使用<code>@Inject Activity activity</code>而不是<code>@Inject HomeActivity activity</code>）。</p>
+
+<p>如果@<code>BindsInstance</code>方法的参数可能为 <code>null</code>，需要再用<code>@Nullable</code>标记，同时标注 <code>Inject</code> 的地方也需要用<code>@Nullable</code>标记。这时 <code>Builder</code> 也可以不调用<code>@BindsInstance</code>方法，这样 <code>Component</code> 会默认设置 <code>instance</code> 为 <code>null</code>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/android/dagger2/dagger2%E5%85%A5%E9%97%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

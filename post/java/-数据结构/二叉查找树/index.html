@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="二叉查找树（Binary Search Tree） 二叉查找树（BST）的特性  左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉排序树  下图中这棵树，就是一颗典型的二叉查找树： 那这样的结构有什么好处呢？我们试着查找一下值为10的节点。
+ 查看根节点为9： 由于10&amp;gt;9，因此查看右子节点13 由于10&amp;lt;13，因此查看左子节点11 由于10&amp;lt;11，因此查看左子节点，发现10正是要查找的节点。  二叉查找树，查找所需的最大次数等同于二叉查找树的高度。 在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。
+缺点： 缺点提现在插入新节点的时候。 例子： 假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图 接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？ 为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。
+红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。
+ 节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  正因为这些规则，才保证了红黑树的自平衡。 红黑树从根到叶子的最长路径不会超过最短路径的2倍 当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="二叉查找树（Binary Search Tree） 二叉查找树（BST）的特性  左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉排序树  下图中这棵树，就是一颗典型的二叉查找树： 那这样的结构有什么好处呢？我们试着查找一下值为10的节点。
+ 查看根节点为9： 由于10&gt;9，因此查看右子节点13 由于10&lt;13，因此查看左子节点11 由于10&lt;11，因此查看左子节点，发现10正是要查找的节点。  二叉查找树，查找所需的最大次数等同于二叉查找树的高度。 在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。
+缺点： 缺点提现在插入新节点的时候。 例子： 假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图 接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？ 为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。
+红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。
+ 节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  正因为这些规则，才保证了红黑树的自平衡。 红黑树从根到叶子的最长路径不会超过最短路径的2倍 当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="二叉查找树（Binary Search Tree） 二叉查找树（BST）的特性  左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉排序树  下图中这棵树，就是一颗典型的二叉查找树： 那这样的结构有什么好处呢？我们试着查找一下值为10的节点。
+ 查看根节点为9： 由于10&gt;9，因此查看右子节点13 由于10&lt;13，因此查看左子节点11 由于10&lt;11，因此查看左子节点，发现10正是要查找的节点。  二叉查找树，查找所需的最大次数等同于二叉查找树的高度。 在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。
+缺点： 缺点提现在插入新节点的时候。 例子： 假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图 接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？ 为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。
+红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。
+ 节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  正因为这些规则，才保证了红黑树的自平衡。 红黑树从根到叶子的最长路径不会超过最短路径的2倍 当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。">
+
+
+
+<meta itemprop="wordCount" content="30">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="二叉查找树（Binary Search Tree） 二叉查找树（BST）的特性  左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉排序树  下图中这棵树，就是一颗典型的二叉查找树： 那这样的结构有什么好处呢？我们试着查找一下值为10的节点。
+ 查看根节点为9： 由于10&gt;9，因此查看右子节点13 由于10&lt;13，因此查看左子节点11 由于10&lt;11，因此查看左子节点，发现10正是要查找的节点。  二叉查找树，查找所需的最大次数等同于二叉查找树的高度。 在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。
+缺点： 缺点提现在插入新节点的时候。 例子： 假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图 接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？ 为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。
+红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。
+ 节点是红色或黑色。 根节点是黑色。 每个叶子节点都是黑色的空节点（NIL节点）。 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点) 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。  正因为这些规则，才保证了红黑树的自平衡。 红黑树从根到叶子的最长路径不会超过最短路径的2倍 当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#二叉查找树-binary-search-tree">二叉查找树（Binary Search Tree）</a>
+<ul>
+<li><a href="#二叉查找树-bst-的特性">二叉查找树（BST）的特性</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="二叉查找树-binary-search-tree">二叉查找树（Binary Search Tree）</h1>
+
+<h2 id="二叉查找树-bst-的特性">二叉查找树（BST）的特性</h2>
+
+<ol>
+<li>左子树上面所有节点的值均小于或等于它的根节点的值</li>
+<li>右子树上所有节点的值均大于或等于它的根节点的值。</li>
+<li>左右子树分别为二叉排序树</li>
+</ol>
+
+<p>下图中这棵树，就是一颗典型的二叉查找树：
+<img src="http://5b0988e595225.cdn.sohucs.com/images/20171102/202128cf82084e64a251b458f0ddcd9b.jpeg" alt="二叉查找树" />
+那这样的结构有什么好处呢？我们试着查找一下值为10的节点。</p>
+
+<ol>
+<li>查看根节点为9：</li>
+<li>由于10&gt;9，因此查看右子节点13</li>
+<li>由于10&lt;13，因此查看左子节点11</li>
+<li>由于10&lt;11，因此查看左子节点，发现10正是要查找的节点。</li>
+</ol>
+
+<p>二叉查找树，查找所需的最大次数等同于二叉查找树的高度。
+在插入节点时，也是利用类似的方法，通过一层层比较大小，找到新节点适合的插入位置。</p>
+
+<p>缺点：
+缺点提现在插入新节点的时候。
+例子：
+假设初始的二叉查找树只有三个节点，根节点为9，左子节点值为8，右子节点为12，如图
+<img src="http://5b0988e595225.cdn.sohucs.com/images/20171102/be7648945b8c486e89a659862226dc78.png" alt="二叉查找树" />
+接下来我们一次插入如下五个节点：7，6，5，4，3。依照二叉查找树的特性，结果会变成什么样呢？
+<img src="http://5b0988e595225.cdn.sohucs.com/images/20171102/3490195d7e3a405c97c34d391c71f09b.png" alt="结果" /></p>
+
+<p>为了解决二叉查找树多次插入新节点而导致的不平衡，红黑树应用而生。</p>
+
+<p>红黑树是一种自平衡的二叉查找树。除了符合二叉查找树的基本特性外，还有下列附加特性。</p>
+
+<ol>
+<li>节点是红色或黑色。</li>
+<li>根节点是黑色。</li>
+<li>每个叶子节点都是黑色的空节点（NIL节点）。</li>
+<li>每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</li>
+<li>从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点（简称黑高）。</li>
+</ol>
+
+<p>正因为这些规则，才保证了红黑树的自平衡。
+红黑树从根到叶子的最长路径不会超过最短路径的2倍
+当插入或删除节点的时候，红黑树的规则有可能被打破。这个时候需要做一些调整，来维持我们的规则。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhangwlhaut</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/concurrenthashmap/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

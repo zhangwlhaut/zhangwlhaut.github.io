@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>协程 on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/%E5%8D%8F%E7%A8%8B/</link>
+    <description>Recent content in 协程 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Apr 2019 08:36:54 -0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/%E5%8D%8F%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>let,apply,run,with的区别</title>
+      <link>http://localhost:1313/post/kotlin/letapplyrunwith%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 25 Apr 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/kotlin/letapplyrunwith%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>let,apply,run,with的区别 let 官方源码 1 public inline fun &amp;lt;T, R&amp;gt; T.let(block: (T) -&amp;gt; R): R = block(this) 例子： 1 2 3 4 5 6 7 8 9 10 11 fun main(args: Array&amp;lt;String&amp;gt;) { val list: MutableList&amp;lt;String&amp;gt; = mutableListOf(&amp;#34;A&amp;#34;,&amp;#34;B&amp;#34;,&amp;#34;C&amp;#34;) val change: Any change = list.let { it.add(&amp;#34;D&amp;#34;)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="Hugo theme even example site." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="Even - A super concise theme for Hugo" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="Even - A super concise theme for Hugo" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Even - A super concise theme for Hugo" />
+<meta property="og:description" content="Hugo theme even example site." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+
+<meta property="og:updated_time" content="2019-04-25T08:36:54-07:00"/>
+
+<meta itemprop="name" content="Even - A super concise theme for Hugo">
+<meta itemprop="description" content="Hugo theme even example site.">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
+<meta name="twitter:description" content="Hugo theme even example site."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/%E4%B8%8D%E9%80%8F%E6%98%8E%E6%8E%A7%E4%BB%B6-opacity/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+       不透明控件Opacity Opacity控件调整子控件的不透明度，使子控件透明度，不透明度从0.0到1.0之间，0.0表示完全透明，1.0表示完全不透明。
+用法：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  import &#39;package:flutter/material.dart&#39;; class OpactiyDemo extends StatelessWidget{ @override Widget build(BuildContext context) { return new Scaffold( appBar: new AppBar( title: new Text(&#34;透明度控件&#34;), ), body: new Center( child: new Opacity( opacity: 0.1, child: new Container( height: 100.0, width: 250.0, color: Colors.red, ), ), ) ); } } void main(){ runApp(new MaterialApp( title: &#34;透明度控件&#34;, home: new OpactiyDemo(), )); }  
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/widget/%E4%B8%8D%E9%80%8F%E6%98%8E%E6%8E%A7%E4%BB%B6-opacity/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E4%B8%BB%E9%A2%98-theme/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      主题-Theme Theme Widget 可以为Material APP 定义主题数据（ThemeData），Material组件库里很多Widget都使用了主题数据，如导航栏颜色，标题字体，Icon样式等。Theme内会使用inherited Widget来为其子树Widget共享样式数据。
+ThemeData ThemeData是Material Design Widget库的主题数据，Material库的Widget需要遵守相应的设计规范，而这些规范可自定义部分都定义在ThemeData，所以我们可以通过ThemeData来自定义应用主题。通过Theme.of方法获取当前ThemeData。 &gt; 注意，Material Design 设计规范中有些是不能自定义的，如导航栏高度，ThemeData只包含了可自定义部分。
+ThemeData中的部分数据：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  ThemeData({ Brightness brightness, //深色还是浅色  MaterialColor primarySwatch, //主题颜色样本，见下面介绍  Color primaryColor, //主色，决定导航栏颜色  Color accentColor, //次级色，决定大多数Widget的颜色，如进度条、开关等。  Color cardColor, //卡片颜色  Color dividerColor, //分割线颜色  ButtonThemeData buttonTheme, //按钮主题  Color cursorColor, //输入框光标颜色  Color dialogBackgroundColor,//对话框背景颜色  String fontFamily, //文字字体  TextTheme textTheme,// 字体主题，包括标题、body等文字样式  IconThemeData iconTheme, // Icon的默认样式  TargetPlatform platform, //指定平台，应用特定平台控件风格  .
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E4%B8%BB%E9%A2%98-theme/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ListView ListView是最常用的可滚动Widget，它可以沿着一个方向限行排布所有子Widget。 构造函数如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ListView({ ... //可滚动widget公共参数  Axis scrollDirection = Axis.vertical, bool reverse = false, ScrollController controller, bool primary, ScrollPhysics physics, EdgeInsetsGeometry padding, //ListView各个构造函数的共同参数  double itemExtent, bool shrinkWrap = false, bool addAutomaticKeepAlives = true, bool addRepaintBoundaries = true, double cacheExtent, //子widget列表  List&lt;Widget&gt; children = const &lt;Widget&gt;[], })   上面参数分为两组，第一组是可滚动Widget公共参数，第二组是ListView各个构造函数（ListView有多个构造函数）的公共参数。 可滚动Widget公共参数介绍见滚动监听及控制ScrollController
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+       可滚动Widget简介 当内容超过显示视口（ViewPort）时，如果没有特殊处理，Flutter则会提示Overflow错误。为此，Flutter提供了可滚动Widget用于显示列表和长布局。 下面是Srollable widget的公共属性，为了避免重复介绍，这里做统一介绍。
+1 2 3 4 5 6 7  Scrollable({ ... this.axisDirection = AxisDirection.down, this.controller, this.physics, @required this.viewportBuilder, //后面介绍 })    axisDirection: 滚动方向。 physics: 此属性接受一个ScrollPhysics对象，它决定可滚动Widget如何响应用户操作，比如用户滑动完抬起手指后，继续执行动画；或者滑动到边界时，如何显示。默认情况下，Flutter会根据平台使用不同的ScrollPhysics对象，应用不同的显示效果，如当滑动到边界时，继续拖动的话，在IOS上会出现弹性效果，而在Android上回出现微光效果。乳沟你想在所有平台上使用同一的效果，可以显示指定，Flutter SDK中包含了两个ScrollPhysics的子类可以直接使用：  ClampingScrollPhysics: Android下微光效果。 BouncingScrollPhysics: IOS下弹性效果。  controller: 此属性接收一个ScrollController对象。ScrollController主要作用是控制滚动位置和监听滚动事件。默认情况下，widget树种会有一个默认的PromaryScrollController, 如果子树中的可滚动widget没有显示的执行controller并且primary属性为true时（默认就为true），可滚动widget会使用这个默认的PrimarySrollController，这种机制的好处是父widget可以控制子树中可滚动widget的滚动，例如，Scaffold使用这种机制在IOS中实现了“回到顶部”的手势。详细介绍见滚动监听及控制ScrollController  
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/"></a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 0001-01-01 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      滚动监听及控制 以ListView为例，展示ScrollController的具体用法。最后，再介绍一下路由切换时如何保存滚动位置。
+ScrollController 构造函数：
+1 2 3 4 5  ScrollController({ double initialScrollOffset = 0.0, //初始滚动位置  this.keepScrollOffset = true,//是否保存滚动位置  ... })   ScrollController常用属性和方法：
+ offset 可滚动Widget当前滚动的位置 jumpTo(double offset)、animaTo(double offset,...) 这两个方法用于跳转到指定位置，他们不同之处在于，后者在跳转时会执行一个动画，前者不会。   滚动监听 ScrollController间接继承自Listenable，我们可以根据ScrollController来监听滚动事件。如：
+1  controller.addListener(()=&gt; print(controller.offset))   示例 我们创建一个ListView，当滚动位置放生变化时，我们先打印当前滚动位置，然后判断当前位置是否超过1000像素，如果草果则在屏幕右下角显示一个“返回顶部”的按钮，该按钮点击后可以使ListView恢复到初始位置；如果没有超过1000像素，则隐藏“返回顶部按钮”。代码如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62  class ScrollControllerTestRoute extends StatefulWidget { @override ScrollControllerTestRouteState createState() { return new ScrollControllerTestRouteState(); } } class ScrollControllerTestRouteState extends State&lt;ScrollControllerTestRoute&gt; { ScrollController _controller = new ScrollController(); bool showToTopBtn = false; //是否显示“返回到顶部”按钮  @override void initState() { //监听滚动事件，打印滚动位置  _controller.
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    <a class="next" href="/page/5/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">zhangwlhaut</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

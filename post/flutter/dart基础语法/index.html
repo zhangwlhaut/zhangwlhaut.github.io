@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> - Even - A super concise theme for Hugo</title>
+  <title>Dart基础语法 - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,12 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="zhangwlhaut" /><meta name="description" content="Dart基础语法.md 方法 Dart下??、??=属于操作符，如：AA ?? &amp;quot;999&amp;quot;表示如果AA为空，返回999；AA ??=&amp;quot;999&amp;quot; 表示如果AA为空，给AA设置为999。
-Dart方法可以设置*参数默认值*和*指定名称*。比如：getDetail(String userName,reposName,{branch = &amp;quot;master&amp;quot;}{}方法，这里branch不设置的话，默认是master。参数类型可以指定或者不指定。调用效果：getRepositoryDetailDao(&amp;quot;aa&amp;quot;,&amp;quot;bb&amp;quot;,brance:&amp;quot;dev&amp;quot;);
-Dart不像Java，没有关键词public、private等修饰符，_下横线直接代表private,但是有@protected注解。
-Dart中多构造函数，可以通过如下代码实现。默认构建方法只能有一个，而通过Model.emptu()方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量的初始化值，只需要通过this.name构造方法中指定即可：
-1 2 3 4 5 6 7 8 9 10 11 12 13  class ModelA { String name; String tag; //默认构造方法，赋值给name和tag  ModelA(this.name, this.tag); //返回一个空的ModelA  ModelA.empty(); //返回一个设置了name的ModelA  ModelA.forName(this.name); }   asyc/await Flutter 中支持 async/await。这一点和 ES7 很像，如下代码所示，只是定义的位置不同。同时异步操作也和 ES6 中的Promise 很像，只是 Flutter 中返回的是 Future 对象，通过 then 可以执行下一步。如果返回的还是 Future 便可以 then().then.() 的流式操作了 。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ///模拟等待两秒，返回OK  request() async { await Future." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="方法 Dart下??、??=属于操作符，如：AA ?? &amp;quot;999&amp;quot;表示如果AA为空，返回999；AA ??=&amp;quot;999&amp;quot; 表示如果AA为空，给AA设" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -43,40 +38,27 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="Dart基础语法.md 方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设置为999。
-Dart方法可以设置*参数默认值*和*指定名称*。比如：getDetail(String userName,reposName,{branch = &quot;master&quot;}{}方法，这里branch不设置的话，默认是master。参数类型可以指定或者不指定。调用效果：getRepositoryDetailDao(&quot;aa&quot;,&quot;bb&quot;,brance:&quot;dev&quot;);
-Dart不像Java，没有关键词public、private等修饰符，_下横线直接代表private,但是有@protected注解。
-Dart中多构造函数，可以通过如下代码实现。默认构建方法只能有一个，而通过Model.emptu()方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量的初始化值，只需要通过this.name构造方法中指定即可：
-1 2 3 4 5 6 7 8 9 10 11 12 13  class ModelA { String name; String tag; //默认构造方法，赋值给name和tag  ModelA(this.name, this.tag); //返回一个空的ModelA  ModelA.empty(); //返回一个设置了name的ModelA  ModelA.forName(this.name); }   asyc/await Flutter 中支持 async/await。这一点和 ES7 很像，如下代码所示，只是定义的位置不同。同时异步操作也和 ES6 中的Promise 很像，只是 Flutter 中返回的是 Future 对象，通过 then 可以执行下一步。如果返回的还是 Future 便可以 then().then.() 的流式操作了 。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ///模拟等待两秒，返回OK  request() async { await Future." />
+<meta property="og:title" content="Dart基础语法" />
+<meta property="og:description" content="方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" />
+<meta property="article:published_time" content="2019-03-21T08:36:54-07:00"/>
+<meta property="article:modified_time" content="2019-03-21T08:36:54-07:00"/>
+
+<meta itemprop="name" content="Dart基础语法">
+<meta itemprop="description" content="方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设">
 
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="Dart基础语法.md 方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设置为999。
-Dart方法可以设置*参数默认值*和*指定名称*。比如：getDetail(String userName,reposName,{branch = &quot;master&quot;}{}方法，这里branch不设置的话，默认是master。参数类型可以指定或者不指定。调用效果：getRepositoryDetailDao(&quot;aa&quot;,&quot;bb&quot;,brance:&quot;dev&quot;);
-Dart不像Java，没有关键词public、private等修饰符，_下横线直接代表private,但是有@protected注解。
-Dart中多构造函数，可以通过如下代码实现。默认构建方法只能有一个，而通过Model.emptu()方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量的初始化值，只需要通过this.name构造方法中指定即可：
-1 2 3 4 5 6 7 8 9 10 11 12 13  class ModelA { String name; String tag; //默认构造方法，赋值给name和tag  ModelA(this.name, this.tag); //返回一个空的ModelA  ModelA.empty(); //返回一个设置了name的ModelA  ModelA.forName(this.name); }   asyc/await Flutter 中支持 async/await。这一点和 ES7 很像，如下代码所示，只是定义的位置不同。同时异步操作也和 ES6 中的Promise 很像，只是 Flutter 中返回的是 Future 对象，通过 then 可以执行下一步。如果返回的还是 Future 便可以 then().then.() 的流式操作了 。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ///模拟等待两秒，返回OK  request() async { await Future.">
-
-
-
-<meta itemprop="wordCount" content="121">
+<meta itemprop="datePublished" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="dateModified" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="wordCount" content="753">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Dart," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Dart基础语法.md 方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设置为999。
-Dart方法可以设置*参数默认值*和*指定名称*。比如：getDetail(String userName,reposName,{branch = &quot;master&quot;}{}方法，这里branch不设置的话，默认是master。参数类型可以指定或者不指定。调用效果：getRepositoryDetailDao(&quot;aa&quot;,&quot;bb&quot;,brance:&quot;dev&quot;);
-Dart不像Java，没有关键词public、private等修饰符，_下横线直接代表private,但是有@protected注解。
-Dart中多构造函数，可以通过如下代码实现。默认构建方法只能有一个，而通过Model.emptu()方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量的初始化值，只需要通过this.name构造方法中指定即可：
-1 2 3 4 5 6 7 8 9 10 11 12 13  class ModelA { String name; String tag; //默认构造方法，赋值给name和tag  ModelA(this.name, this.tag); //返回一个空的ModelA  ModelA.empty(); //返回一个设置了name的ModelA  ModelA.forName(this.name); }   asyc/await Flutter 中支持 async/await。这一点和 ES7 很像，如下代码所示，只是定义的位置不同。同时异步操作也和 ES6 中的Promise 很像，只是 Flutter 中返回的是 Future 对象，通过 then 可以执行下一步。如果返回的还是 Future 便可以 then().then.() 的流式操作了 。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ///模拟等待两秒，返回OK  request() async { await Future."/>
+<meta name="twitter:title" content="Dart基础语法"/>
+<meta name="twitter:description" content="方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,13 +121,13 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title"></h1>
+      <h1 class="post-title">Dart基础语法</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 0001-01-01 </span>
+        <span class="post-time"> 2019-03-21 </span>
         
-          <span class="more-meta"> 121 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 753 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -155,7 +137,7 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#dart基础语法-md">Dart基础语法.md</a>
+<li>
 <ul>
 <li><a href="#方法">方法</a>
 <ul>
@@ -168,8 +150,6 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
 </div>
     <div class="post-content">
       
-
-<h1 id="dart基础语法-md">Dart基础语法.md</h1>
 
 <h2 id="方法">方法</h2>
 
@@ -271,7 +251,7 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        0001-01-01
+        2019-03-21
         
     </span>
   </p>
@@ -279,15 +259,17 @@ Dart中多构造函数，可以通过如下代码实现。默认构建方法只�
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/dart/">Dart</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/android/dagger2/scope/">
+        <a class="prev" href="/post/kotlin/letapplyrunwith%E7%9A%84%E5%8C%BA%E5%88%AB/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-default">let,apply,run,with的区别</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-            <span class="next-text nav-default"></span>
+        <a class="next" href="/post/flutter/widget/expanded%E5%92%8Cflexible%E7%9A%84%E5%8C%BA%E5%88%AB/">
+            <span class="next-text nav-default">Expanded 和 Flexible</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

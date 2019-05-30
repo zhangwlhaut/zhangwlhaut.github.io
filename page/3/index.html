@@ -115,122 +115,105 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/android/dagger2/scope/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/listtile/">ListTile</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
+      <span class="post-time"> 2019-03-21 </span>
       
-        <span class="more-meta"> 809 words </span>
-        <span class="more-meta"> 4 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Scope(作用域) Scope是用来确定注入的实例的生命周期的，如果没有使用Scope注解，Component每次调用Module中的provide方法或者Inject构造函数生成的工厂时都会创建一个新的实例，而使用Scope后可以复用之前的依赖实例。下面先介绍Scope的基本概念与原理，再分析Singleton、Reusable等作用域。
-Scope基本概念 先介绍Scope的用法，@Scope是元注解，是用来标记自定义注解的，如下：
-1 2 3 4  @Documented @Retention(RUNTIME) @Scope public @interface MyScope {}   MyScope就是一个Scope注解，Scope注解只能标注目标类、@provide方法和component。Scope注解要生效的话，需要同时标注在Component和提供依赖的示例的Module或者目标类上。Module中provide方法中的Scope注解必须和与之绑定的Component的Scope注解一样，否者作用域不同会导致编译时报错。例如，CarModule中的provide方法的Scope是MyScope的话，ManComponent的Scope必须是MyScope这样的作用域才会生效，而且不能是@Singleton或者其它Scope注解，不然编译时Dagger2会报错。
-那么 Scope 注解又是如何产生作用的呢，怎么保证生成的依赖实例的生命周期呢？
-在 Dagger 2 官方文档中我找到一句话，非常清楚地描述了@Scope的原理：
- When a binding uses a scope annotation, that means that the component object holds a reference to the bound object until the component object itself is garbage-collected.
- 当 Component 与 Module、目标类（需要被注入依赖）使用 Scope 注解绑定时，意味着 Component 对象持有绑定的依赖实例的一个引用直到 Component 对象本身被回收。也就是作用域的原理，其实是让生成的依赖实例的生命周期与 Component 绑定，Scope 注解并不能保证生命周期，要想保证赖实例的生命周期，需要确保 Component 的生命周期。
-    </div>
-    <div class="read-more">
-      <a href="/post/android/dagger2/scope/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-        <span class="more-meta"> 121 words </span>
+        <span class="more-meta"> 358 words </span>
         <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Dart基础语法.md 方法 Dart下??、??=属于操作符，如：AA ?? &quot;999&quot;表示如果AA为空，返回999；AA ??=&quot;999&quot; 表示如果AA为空，给AA设置为999。
-Dart方法可以设置*参数默认值*和*指定名称*。比如：getDetail(String userName,reposName,{branch = &quot;master&quot;}{}方法，这里branch不设置的话，默认是master。参数类型可以指定或者不指定。调用效果：getRepositoryDetailDao(&quot;aa&quot;,&quot;bb&quot;,brance:&quot;dev&quot;);
-Dart不像Java，没有关键词public、private等修饰符，_下横线直接代表private,但是有@protected注解。
-Dart中多构造函数，可以通过如下代码实现。默认构建方法只能有一个，而通过Model.emptu()方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量的初始化值，只需要通过this.name构造方法中指定即可：
-1 2 3 4 5 6 7 8 9 10 11 12 13  class ModelA { String name; String tag; //默认构造方法，赋值给name和tag  ModelA(this.name, this.tag); //返回一个空的ModelA  ModelA.empty(); //返回一个设置了name的ModelA  ModelA.forName(this.name); }   asyc/await Flutter 中支持 async/await。这一点和 ES7 很像，如下代码所示，只是定义的位置不同。同时异步操作也和 ES6 中的Promise 很像，只是 Flutter 中返回的是 Future 对象，通过 then 可以执行下一步。如果返回的还是 Future 便可以 then().then.() 的流式操作了 。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  ///模拟等待两秒，返回OK  request() async { await Future.
+      一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。
     </div>
     <div class="read-more">
-      <a href="/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="read-more-link">Read more..</a>
+      <a href="/post/flutter/widget/listtile/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/">ListView的基本使用</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
+      <span class="post-time"> 2019-03-21 </span>
       
-        <span class="more-meta"> 267 words </span>
-        <span class="more-meta"> 2 mins read </span>
+        <span class="more-meta"> 2842 words </span>
+        <span class="more-meta"> 6 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors.
+      ListView是最常用的可滚动Widget，它可以沿着一个方向限行排布所有子Widget。
     </div>
     <div class="read-more">
-      <a href="/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="read-more-link">Read more..</a>
+      <a href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/">Padding、Align、Center详解</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
+      <span class="post-time"> 2019-03-21 </span>
       
-        <span class="more-meta"> 48 words </span>
+        <span class="more-meta"> 2 words </span>
         <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-       Flutter页面 Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面呈现的Widget。其中常见的有 MaterialApp、Scaffold、Appbar、Text、Image、FlatButton等。下面简单介绍这些 Wdiget，并完成一个页面。
-   类型 作用特点     MaterialApp 一般作为APP顶层的主页入口，可配置主题，多语言，路由等   Scaffold 一般用户页面的承载Widget，包含appbar、snackbar、drawer等material design的设定。   Appbar 一般用于Scaffold的appbar ，内有标题，二级页面返回按键等，当然不止这些，tabbar等也会需要它 。   Text 显示文本，几乎都会用到，主要是通过style设置TextStyle来设置字体样式等。   RichText 富文本，通过设置TextSpan，可以拼接出富文本场景。   TextField 文本输入框 ：new TextField(controller: //文本控制器, obscureText: "hint文本");   Image 图片加载: new FadeInImage.assetNetwork( placeholder: "预览图", fit: BoxFit.fitWidth, image: "url");   FlatButton 按键点击: new FlatButton(onPressed: () {},child: new Container());    
+      Padding、Align、Center详解
     </div>
     <div class="read-more">
-      <a href="/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/" class="read-more-link">Read more..</a>
+      <a href="/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/futurebuilder/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/sliverappbar/">SliverAppBar</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
+      <span class="post-time"> 2019-03-21 </span>
       
-        <span class="more-meta"> 434 words </span>
-        <span class="more-meta"> 3 mins read </span>
+        <span class="more-meta"> 2832 words </span>
+        <span class="more-meta"> 6 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
- 官方的意思是一个基于与Future交互快照构建自身的小组件。
-FutureBuilder用法和实现 构造方法：
-1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot.
+      AppBar和SliverAppBar都是继承StatefulWidget类，都代表Toolbar,二者的区别在于AppBar位置的固定在应用最上面，而SliverAppBar是可以跟随内容滚动的。
     </div>
     <div class="read-more">
-      <a href="/post/flutter/widget/futurebuilder/" class="read-more-link">Read more..</a>
+      <a href="/post/flutter/widget/sliverappbar/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/flutter/widget/statefulwiget/">StatefulWiget</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-03-21 </span>
+      
+        <span class="more-meta"> 453 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      你需要创建管理的是主要是 State ， 通过 State 的 build 方法去构建控件。在 State 中，你可以动态改变数据，这类似 MVVM 实现，在 setState 之后，改变的数据会触发 Widget 重新构建刷新。而
+    </div>
+    <div class="read-more">
+      <a href="/post/flutter/widget/statefulwiget/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

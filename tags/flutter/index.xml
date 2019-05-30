@@ -17,7 +17,16 @@
       <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
       
       <guid>http://localhost:1313/post/flutter/widget/expanded%E5%92%8Cflexible%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-      <description>Flexible Flexible是一个控制Row、Column、Flex等子组件如何布局的组件。 Flexible组件可以使Row、Column、Flex等</description>
+      <description>Expanded 和 Flexible的区别</description>
+    </item>
+    
+    <item>
+      <title>Flutter主题（Theme）</title>
+      <link>http://localhost:1313/post/flutter/%E4%B8%BB%E9%A2%98-theme/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/%E4%B8%BB%E9%A2%98-theme/</guid>
+      <description>参考： 主题-Theme Theme Widget 可以为Material APP 定义主题数据（ThemeData），Material组件库里很多Widget都使用了主题数</description>
     </item>
     
     <item>
@@ -26,7 +35,52 @@
       <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
       
       <guid>http://localhost:1313/post/flutter/widget/flutter%E5%B8%83%E5%B1%80/</guid>
-      <description>Flutter 中拥有需要将近30种内置的 布局Widget，其中常用有 Container、Padding、Center、Flex、Stack、Row、Co</description>
+      <description>Flutter常用布局</description>
+    </item>
+    
+    <item>
+      <title>Flutter开发中一些问题的总结</title>
+      <link>http://localhost:1313/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>参考：Flutter实战进阶 container width、height 100% 1 2 3 4 5 FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , ) 1 2 double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height 沉浸式背景图片 背景图片铺满AppBar</description>
+    </item>
+    
+    <item>
+      <title>Flutter路由管理</title>
+      <link>http://localhost:1313/post/flutter/%E8%B7%AF%E7%94%B1/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/%E8%B7%AF%E7%94%B1/</guid>
+      <description>路由(Route)在移动开发中通常指页面（Page），这跟web开发中单页应用的Route概念意义是相同的，Route在Android中通常</description>
+    </item>
+    
+    <item>
+      <title>FutureBuilder</title>
+      <link>http://localhost:1313/post/flutter/widget/futurebuilder/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/futurebuilder/</guid>
+      <description>FutureBuilder使用，以及防止FutureBuilder进行不必要的重绘。</description>
+    </item>
+    
+    <item>
+      <title>ListTile</title>
+      <link>http://localhost:1313/post/flutter/widget/listtile/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/listtile/</guid>
+      <description>一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。</description>
+    </item>
+    
+    <item>
+      <title>ListView的基本使用</title>
+      <link>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/</guid>
+      <description>ListView是最常用的可滚动Widget，它可以沿着一个方向限行排布所有子Widget。</description>
     </item>
     
     <item>
@@ -35,7 +89,61 @@
       <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
       
       <guid>http://localhost:1313/post/flutter/widget/-paddingaligncenter%E8%AF%A6%E8%A7%A3/</guid>
-      <description>参考</description>
+      <description>Padding、Align、Center详解</description>
+    </item>
+    
+    <item>
+      <title>SliverAppBar</title>
+      <link>http://localhost:1313/post/flutter/widget/sliverappbar/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/sliverappbar/</guid>
+      <description>AppBar和SliverAppBar都是继承StatefulWidget类，都代表Toolbar,二者的区别在于AppBar位置的固定在应用最上面，而SliverAppBar是可以跟随内容滚动的。</description>
+    </item>
+    
+    <item>
+      <title>StatefulWiget</title>
+      <link>http://localhost:1313/post/flutter/widget/statefulwiget/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/statefulwiget/</guid>
+      <description>你需要创建管理的是主要是 State ， 通过 State 的 build 方法去构建控件。在 State 中，你可以动态改变数据，这类似 MVVM 实现，在 setState 之后，改变的数据会触发 Widget 重新构建刷新。而</description>
+    </item>
+    
+    <item>
+      <title>不透明控件Opacity</title>
+      <link>http://localhost:1313/post/flutter/widget/%E4%B8%8D%E9%80%8F%E6%98%8E%E6%8E%A7%E4%BB%B6-opacity/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/%E4%B8%8D%E9%80%8F%E6%98%8E%E6%8E%A7%E4%BB%B6-opacity/</guid>
+      <description>Opacity控件调整子控件的不透明度，使子控件透明度，不透明度从0.0到1.0之间，0.0表示完全透明，1.0表示完全不透明。</description>
+    </item>
+    
+    <item>
+      <title>可滚动Widget简介</title>
+      <link>http://localhost:1313/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/</guid>
+      <description>Flutter页面 Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面呈现的Widget。其中常见的有 MaterialApp、Scaffo</description>
+    </item>
+    
+    <item>
+      <title>可滚动Widget简介</title>
+      <link>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget%E7%AE%80%E4%BB%8B/</guid>
+      <description>当内容超过显示视口（ViewPort）时，如果没有特殊处理，Flutter则会提示Overflow错误。为此，Flutter提供了可滚动Wi</description>
+    </item>
+    
+    <item>
+      <title>滚动监听及控制</title>
+      <link>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC%E5%8F%8A%E6%8E%A7%E5%88%B6scrollcontroller/</guid>
+      <description>以ListView为例，展示ScrollController的具体用法。最后，再介绍一下路由切换时如何保存滚动位置。</description>
     </item>
     
   </channel>

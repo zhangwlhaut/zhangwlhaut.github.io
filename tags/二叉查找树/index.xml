@@ -17,7 +17,7 @@
       <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
       
       <guid>http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/</guid>
-      <description>二叉查找树（BST）的特性 左子树上面所有节点的值均小于或等于它的根节点的值 右子树上所有节点的值均大于或等于它的根节点的值。 左右子树分别为二叉</description>
+      <description>二叉查找树（Binary Search Tree）</description>
     </item>
     
   </channel>

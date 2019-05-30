@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> - Even - A super concise theme for Hugo</title>
+  <title>Flutter开发中一些问题的总结 - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="zhangwlhaut" /><meta name="description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &amp;lt;Widget&amp;gt;[ Container( child: Image.network(&amp;#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&amp;#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="参考：Flutter实战进阶 container width、height 100% 1 2 3 4 5 FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , ) 1 2 double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height 沉浸式背景图片 背景图片铺满AppBar" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,28 +38,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors." />
+<meta property="og:title" content="Flutter开发中一些问题的总结" />
+<meta property="og:description" content="参考：Flutter实战进阶 container width、height 100% 1 2 3 4 5 FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , ) 1 2 double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height 沉浸式背景图片 背景图片铺满AppBar" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/flutter/flutter%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" />
+<meta property="article:published_time" content="2019-03-21T08:36:54-07:00"/>
+<meta property="article:modified_time" content="2019-03-21T08:36:54-07:00"/>
+
+<meta itemprop="name" content="Flutter开发中一些问题的总结">
+<meta itemprop="description" content="参考：Flutter实战进阶 container width、height 100% 1 2 3 4 5 FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , ) 1 2 double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height 沉浸式背景图片 背景图片铺满AppBar">
 
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors.">
+<meta itemprop="datePublished" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="dateModified" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="wordCount" content="704">
 
 
 
-<meta itemprop="wordCount" content="267">
-
-
-
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Flutter," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Flutter实战进阶 container width、height 100% 1 2 3 4 5  FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , )  1 2  double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height   沉浸式背景图片 背景图片铺满AppBar及状态栏
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  Widget build(BuildContext context) { return new Stack( children: &lt;Widget&gt;[ Container( child: Image.network(&#39;https://www.bing.com/az/hprichbg/rb/Punakaiki_DE-DE0884339574_1920x1080.jpg&#39;), color: Colors.lightGreen, ), Scaffold( backgroundColor: Colors."/>
+<meta name="twitter:title" content="Flutter开发中一些问题的总结"/>
+<meta name="twitter:description" content="参考：Flutter实战进阶 container width、height 100% 1 2 3 4 5 FractionallySizedBox( widthFactor: 1, heightFactor: 1, child: , ) 1 2 double width = MediaQuery.of(context).size.width double height = MediaQuery.of(context).size.height 沉浸式背景图片 背景图片铺满AppBar"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,12 +121,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title"></h1>
+      <h1 class="post-title">Flutter开发中一些问题的总结</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 0001-01-01 </span>
+        <span class="post-time"> 2019-03-21 </span>
         
-          <span class="more-meta"> 267 words </span>
+          <span class="more-meta"> 704 words </span>
           <span class="more-meta"> 2 mins read </span>
         
       </div>
@@ -139,7 +137,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#flutter实战进阶-https-www-ldsun-com-flutter-practice"><a href="https://www.ldsun.com/flutter-practice/">Flutter实战进阶</a></a>
+<li>
 <ul>
 <li><a href="#container-width-height-100">container width、height 100%</a></li>
 <li><a href="#沉浸式背景图片">沉浸式背景图片</a></li>
@@ -159,7 +157,7 @@
     <div class="post-content">
       
 
-<h1 id="flutter实战进阶-https-www-ldsun-com-flutter-practice"><a href="https://www.ldsun.com/flutter-practice/">Flutter实战进阶</a></h1>
+<p>参考：<a href="https://www.ldsun.com/flutter-practice/">Flutter实战进阶</a></p>
 
 <h2 id="container-width-height-100">container width、height 100%</h2>
 <div class="highlight"><div class="chroma">
@@ -422,7 +420,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        0001-01-01
+        2019-03-21
         
     </span>
   </p>
@@ -430,15 +428,17 @@
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/flutter/">Flutter</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+        <a class="prev" href="/post/flutter/widget/flutter%E5%B8%83%E5%B1%80/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-default">Flutter常用布局</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/">
-            <span class="next-text nav-default"></span>
+        <a class="next" href="/post/flutter/%E8%B7%AF%E7%94%B1/">
+            <span class="next-text nav-default">Flutter路由管理</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

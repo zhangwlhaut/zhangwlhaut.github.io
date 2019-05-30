@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> - Even - A super concise theme for Hugo</title>
+  <title>ListTile - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,11 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="zhangwlhaut" /><meta name="description" content="ListTile 一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。
-构造方法
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  const ListTile({ Key key, this.leading, this.title, this.subtitle, this.trailing, this.isThreeLine = false, this.dense, this.contentPadding, this.enabled = true, this.onTap, this.onLongPress, this.selected = false, })   leading 最左侧的头部，参数是一个widget,(这里以icon为例)
-1  new ListTile(leading: new Icon(Icons.cake),)   title 控件的title(参数是widget,这里text为例)
-1 2 3 4  ListTile( leading: new Icon(Icons.cake), title: new Text(&amp;#39;标题&amp;#39;), )   subtitle 富文本标题" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -42,37 +38,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="ListTile 一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。
-构造方法
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  const ListTile({ Key key, this.leading, this.title, this.subtitle, this.trailing, this.isThreeLine = false, this.dense, this.contentPadding, this.enabled = true, this.onTap, this.onLongPress, this.selected = false, })   leading 最左侧的头部，参数是一个widget,(这里以icon为例)
-1  new ListTile(leading: new Icon(Icons.cake),)   title 控件的title(参数是widget,这里text为例)
-1 2 3 4  ListTile( leading: new Icon(Icons.cake), title: new Text(&#39;标题&#39;), )   subtitle 富文本标题" />
+<meta property="og:title" content="ListTile" />
+<meta property="og:description" content="一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/flutter/widget/listtile/" />
+<meta property="article:published_time" content="2019-03-21T08:36:54-07:00"/>
+<meta property="article:modified_time" content="2019-03-21T08:36:54-07:00"/>
+
+<meta itemprop="name" content="ListTile">
+<meta itemprop="description" content="一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。">
 
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="ListTile 一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。
-构造方法
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  const ListTile({ Key key, this.leading, this.title, this.subtitle, this.trailing, this.isThreeLine = false, this.dense, this.contentPadding, this.enabled = true, this.onTap, this.onLongPress, this.selected = false, })   leading 最左侧的头部，参数是一个widget,(这里以icon为例)
-1  new ListTile(leading: new Icon(Icons.cake),)   title 控件的title(参数是widget,这里text为例)
-1 2 3 4  ListTile( leading: new Icon(Icons.cake), title: new Text(&#39;标题&#39;), )   subtitle 富文本标题">
-
-
-
-<meta itemprop="wordCount" content="136">
+<meta itemprop="datePublished" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="dateModified" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="wordCount" content="358">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Flutter,ListTile,Widget," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="ListTile 一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。
-构造方法
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  const ListTile({ Key key, this.leading, this.title, this.subtitle, this.trailing, this.isThreeLine = false, this.dense, this.contentPadding, this.enabled = true, this.onTap, this.onLongPress, this.selected = false, })   leading 最左侧的头部，参数是一个widget,(这里以icon为例)
-1  new ListTile(leading: new Icon(Icons.cake),)   title 控件的title(参数是widget,这里text为例)
-1 2 3 4  ListTile( leading: new Icon(Icons.cake), title: new Text(&#39;标题&#39;), )   subtitle 富文本标题"/>
+<meta name="twitter:title" content="ListTile"/>
+<meta name="twitter:description" content="一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,12 +121,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title"></h1>
+      <h1 class="post-title">ListTile</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 0001-01-01 </span>
+        <span class="post-time"> 2019-03-21 </span>
         
-          <span class="more-meta"> 136 words </span>
+          <span class="more-meta"> 358 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -151,7 +137,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#listtile">ListTile</a>
+<li>
 <ul>
 <li>
 <ul>
@@ -168,8 +154,6 @@
 </div>
     <div class="post-content">
       
-
-<h1 id="listtile">ListTile</h1>
 
 <p>一个固定高度的行，通常包含一些文本，以及一个行前或行尾图标。</p>
 
@@ -329,7 +313,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        0001-01-01
+        2019-03-21
         
     </span>
   </p>
@@ -337,15 +321,19 @@
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/flutter/">Flutter</a>
+          <a href="/tags/listtile/">ListTile</a>
+          <a href="/tags/widget/">Widget</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/flutter/widget/image/">
+        <a class="prev" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/hashmap/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-default">Java7 HashMap</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/flutter/widget/sliverappbar/">
-            <span class="next-text nav-default"></span>
+        <a class="next" href="/post/flutter/%E5%8F%AF%E6%BB%9A%E5%8A%A8widget/listview/">
+            <span class="next-text nav-default">ListView的基本使用</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

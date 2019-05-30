@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> - Even - A super concise theme for Hugo</title>
+  <title>FutureBuilder - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,11 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="zhangwlhaut" /><meta name="description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
- 官方的意思是一个基于与Future交互快照构建自身的小组件。
-FutureBuilder用法和实现 构造方法：
-1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&amp;lt;String&amp;gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&amp;lt;String&amp;gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&amp;lt;String&amp;gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="zhangwlhaut" /><meta name="description" content="FutureBuilder使用，以及防止FutureBuilder进行不必要的重绘。" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -42,37 +38,27 @@ FutureBuilder用法和实现 构造方法：
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
- 官方的意思是一个基于与Future交互快照构建自身的小组件。
-FutureBuilder用法和实现 构造方法：
-1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot." />
+<meta property="og:title" content="FutureBuilder" />
+<meta property="og:description" content="FutureBuilder使用，以及防止FutureBuilder进行不必要的重绘。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/flutter/widget/futurebuilder/" />
+<meta property="article:published_time" content="2019-03-21T08:36:54-07:00"/>
+<meta property="article:modified_time" content="2019-03-21T08:36:54-07:00"/>
+
+<meta itemprop="name" content="FutureBuilder">
+<meta itemprop="description" content="FutureBuilder使用，以及防止FutureBuilder进行不必要的重绘。">
 
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
- 官方的意思是一个基于与Future交互快照构建自身的小组件。
-FutureBuilder用法和实现 构造方法：
-1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot.">
-
-
-
-<meta itemprop="wordCount" content="434">
+<meta itemprop="datePublished" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="dateModified" content="2019-03-21T08:36:54-07:00" />
+<meta itemprop="wordCount" content="2540">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="Flutter,FutureBuilder,Widget," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="FutureBuilder  Widget that builds itself based on the snapshot of interaction with a Future.
- 官方的意思是一个基于与Future交互快照构建自身的小组件。
-FutureBuilder用法和实现 构造方法：
-1 2 3 4 5 6 7  const FutureBuilder({ Key key, this.future, //获取数据的方法  this.initialData, //初始的默认数据  @required this.builder }) : assert(builder != null), super(key: key);   主要看builder，这个是我们主要关心的，它是我们构建组件的策略。 接收两个参数：BuildContext context，AsyncSnapshot snapshot。 context就不用解释了，snapshot就是_calculation在时间轴上执行过程的状态快照。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  //FutureBuilder控件 new FutureBuilder&lt;String&gt;( future: _calculation, // 用户定义的需要异步执行的代码，类型为Future&lt;String&gt;或者null的变量或函数  builder: (BuildContext context, AsyncSnapshot&lt;String&gt; snapshot) { //snapshot就是_calculation在时间轴上执行过程的状态快照  switch (snapshot."/>
+<meta name="twitter:title" content="FutureBuilder"/>
+<meta name="twitter:description" content="FutureBuilder使用，以及防止FutureBuilder进行不必要的重绘。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,13 +121,13 @@ FutureBuilder用法和实现 构造方法：
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title"></h1>
+      <h1 class="post-title">FutureBuilder</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 0001-01-01 </span>
+        <span class="post-time"> 2019-03-21 </span>
         
-          <span class="more-meta"> 434 words </span>
-          <span class="more-meta"> 3 mins read </span>
+          <span class="more-meta"> 2540 words </span>
+          <span class="more-meta"> 6 mins read </span>
         
       </div>
     </header>
@@ -151,7 +137,7 @@ FutureBuilder用法和实现 构造方法：
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#futurebuilder-https-blog-csdn-net-u011272795-article-details-83010974"><a href="https://blog.csdn.net/u011272795/article/details/83010974">FutureBuilder</a></a>
+<li>
 <ul>
 <li><a href="#futurebuilder用法和实现">FutureBuilder用法和实现</a></li>
 <li><a href="#防止futurebuilder进行不必要的重绘">防止FutureBuilder进行不必要的重绘</a></li>
@@ -164,7 +150,7 @@ FutureBuilder用法和实现 构造方法：
     <div class="post-content">
       
 
-<h1 id="futurebuilder-https-blog-csdn-net-u011272795-article-details-83010974"><a href="https://blog.csdn.net/u011272795/article/details/83010974">FutureBuilder</a></h1>
+<p>原文：<a href="https://blog.csdn.net/u011272795/article/details/83010974">FutureBuilder</a></p>
 
 <blockquote>
 <p>Widget that builds itself based on the snapshot of interaction with a Future.</p>
@@ -486,7 +472,7 @@ context就不用解释了，snapshot就是_calculation在时间轴上执行过�
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        0001-01-01
+        2019-03-21
         
     </span>
   </p>
@@ -494,15 +480,19 @@ context就不用解释了，snapshot就是_calculation在时间轴上执行过�
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/flutter/">Flutter</a>
+          <a href="/tags/futurebuilder/">FutureBuilder</a>
+          <a href="/tags/widget/">Widget</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/flutter/widget/flutter%E9%A1%B5%E9%9D%A2/">
+        <a class="prev" href="/post/flutter/%E8%B7%AF%E7%94%B1/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-default">Flutter路由管理</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/flutter/widget/image/">
-            <span class="next-text nav-default"></span>
+        <a class="next" href="/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/concurrenthashmap/">
+            <span class="next-text nav-default">Java7 ConcurrentHashMap</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

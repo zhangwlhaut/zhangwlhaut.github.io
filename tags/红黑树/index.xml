@@ -17,7 +17,7 @@
       <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
       
       <guid>http://localhost:1313/post/java/-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/</guid>
-      <description>R-B Tree，全称 Red-Black Tree，又称“红黑树”，它是一种特殊的二叉查找树。红黑树的每个节点上都有储存位表示节点的颜色，可以是Red或Black。</description>
+      <description>红黑树（R-B Tree）</description>
     </item>
     
   </channel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dart on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/dart/</link>
+    <description>Recent content in Dart on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Mar 2019 08:36:54 -0700</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/dart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dart基础语法</title>
+      <link>http://localhost:1313/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Thu, 21 Mar 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/flutter/dart%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</guid>
+      <description>方法 Dart下??、??=属于操作符，如：AA ?? &amp;quot;999&amp;quot;表示如果AA为空，返回999；AA ??=&amp;quot;999&amp;quot; 表示如果AA为空，给AA设</description>
+    </item>
+    
+  </channel>
+</rss>

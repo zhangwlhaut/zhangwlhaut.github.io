@@ -124,7 +124,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      let,apply,run,with的区别 let 官方源码 1 public inline fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R = block(this) 例子： 1 2 3 4 5 6 7 8 9 10 11 fun main(args: Array&lt;String&gt;) { val list: MutableList&lt;String&gt; = mutableListOf(&#34;A&#34;,&#34;B&#34;,&#34;C&#34;) val change: Any change = list.let { it.add(&#34;D&#34;)
+      let 官方源码 1 public inline fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R = block(this) 例子： 1 2 3 4 5 6 7 8 9 10 11 fun main(args: Array&lt;String&gt;) { val list: MutableList&lt;String&gt; = mutableListOf(&#34;A&#34;,&#34;B&#34;,&#34;C&#34;) val change: Any change = list.let { it.add(&#34;D&#34;) it.add(&#34;E&#34;) it.size } println(&#34;list = $list&#34;) println(&#34;change = $change&#34;) } 输出： &gt; list = [A, B, C, D, E]
     </div>
     <div class="read-more">
       <a href="/post/kotlin/letapplyrunwith%E7%9A%84%E5%8C%BA%E5%88%AB/" class="read-more-link">Read more..</a>
